@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>BabbageCommunityUser</members>
+        <name>ApexClass</name>
+    </types>
+
+    <types>
+        <members>CommunitiesLanding</members>
+        <name>ApexPage</name>
+    </types>
+
+    <types>
+        <members>EnableCustomerUser</members>
+        <members>EnableDoctorUser</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+
+    <types>
+        <members>Southern_Heart</members>
+        <name>CustomApplication</name>
+    </types>
+
+    <types>
+        <members>Appointment__c</members>
+        <members>Contact</members>
+        <members>Doctor_Survey__c</members>
+        <members>Office_Location__c</members>
+        <members>Office_Survey__c</members>
+        <members>Residence__c</members>
+        <members>Search__c</members>
+        <name>CustomObject</name>
+    </types>
+        
+    <types>
+        <members>Customer</members>
+        <members>Doctor</members>
+        <name>CustomSite</name>
+    </types>
+
+    <types>
+        <members>Appointment__c</members>
+        <members>Doctor_Survey__c</members>
+        <members>Office_Location__c</members>
+        <members>Office_Survey__c</members>
+        <members>Residence__c</members>
+        <members>Search__c</members>
+        <name>CustomTab</name>
+    </types>
+
+    <types>
+        <members>Southern_Heart_UtilityBar</members>
+        <name>FlexiPage</name>
+    </types>
+
+    <types>
+        <members>Languages</members>
+        <members>Sexes</members>
+        <members>Specialties</members>
+        <name>GlobalValueSet</name>
+    </types>
+
+    <types>
+        <members>Contact-Customer Layout</members>
+        <members>Contact-Doctor Layout</members>
+        <name>Layout</name>
+    </types>
+
+    <types>
+        <members>Customer</members>
+        <members>Doctor</members>
+        <name>Network</name>
+    </types>
+
+    <types>
+        <members>Babbage Customer User</members>
+        <members>Babbage Doctor User</members>
+        <members>Imported Admin</members>
+        <name>Profile</name>
+    </types>
+
+    <types>
+        <members>Contact.Enable_Babbage_Customer_User</members>
+        <members>Contact.Enable_Babbage_Doctor_User</members>
+        <name>QuickAction</name>
+    </types>
+
+    <types>
+        <members>Customer1</members>
+        <members>Doctor1</members>
+        <name>SiteDotCom</name>
+    </types>
+
+    <version>47.0</version>
+</Package>
