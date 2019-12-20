@@ -2,6 +2,8 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>BabbageCommunityUser</members>
+        <!--PLACE APEX CONTROLER CLASSES HERE-->
+        <members>DoctorAppointmentController</members>
         <name>ApexClass</name>
     </types>
 
