@@ -23,8 +23,8 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>ben.learn@playful-fox-mwz4zd.com</siteAdmin>
+    <siteAdmin>vssimonjose@resourceful-moose-ha1bhr.com</siteAdmin>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>babbageproject2-developer-edition</subdomain>
+    <subdomain>simonproject2-developer-edition</subdomain>
     <urlPathPrefix>Customer</urlPathPrefix>
 </CustomSite>
