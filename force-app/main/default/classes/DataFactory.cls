@@ -1,8 +1,26 @@
 public class DataFactory{
-
+    enum UserType {Doctor,Customer}
+    string[] LastNameList=new List<String>{
+        'Smith','Johnson','Williams',
+        'Jones','Brown','Davis',
+        'Miller','Wilson','Moore',
+        'Taylor','Anderson','Thomas',
+        'Hall','Allen','Young',
+        'Hernandaz','Sanchez','Morris'
+    };
+    string[] FirstNameMaleList=new List<String>{
+        'James','John','Robert',
+        'Michael','William','David',
+        'Richard','Joseph','Thomas',
+        'Charles','Christopher','Daniel'
+    };
+    string[] FirstNameFemaleList=new List<String>{
+        'Mary','Patricia','Jennifer',
+        'Linda','Elizabeth','Barbara',
+        'Susan','Jessica','Sarah',
+        'Karen','Nancy','Margaret'
+    };
     public static void CreateAll(integer n){
-        CreateUsers(n);
-        CreateAccounts(n);
         CreateOfficeLocations(n);
         CreateContacts(n);
         CreateAppointments(n);
@@ -10,11 +28,15 @@ public class DataFactory{
         CreateDoctorsSurveys(n);
         CreateOfficeSurveys(n);        
     }
-    public static void CreateUsers(integer n){
+    public static void CreateUserAccounts(integer n, UserType type){
+        ID profileID= [SELECT ID FROM Profile WHERE Name='Babbage Customer User' LIMIT 1].ID;
+        if(type==UserType.Doctor){
+            User u=new User();
+            u.profileID=profileID;
+        }
+        else if(type==UserType.Customer){
 
-    }
-    public static void CreateAccounts(integer n){
-
+        }
     }
     public static void CreateContacts(integer n){
         try{
