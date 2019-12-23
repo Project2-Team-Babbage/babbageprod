@@ -142,12 +142,13 @@ public class DataFactory{
             newCont.phone=(Math.mod(Integer.valueof(Math.Random()*999),899)+100)+'-'+
                 (Math.mod(Integer.valueof(Math.Random()*999),899)+100)+'-'+
                 (Math.mod(Integer.valueof(Math.Random()*9999),8999)+1000);
-            newCont.age__c=Integer.valueof(Math.floor(Math.Random()*50))+14;
+            newCont.age__c=Integer.valueof(Math.floor(Math.Random()*60))+14;
             newCont.mailingStreet=Integer.valueof((Math.Random()*9999))+' '+
                 StreetNameList[Integer.valueof(Math.Random()*StreetNameList.size())];
             newCont.mailingCity=CityList[Integer.valueof(Math.Random()*CityList.size())];
             newCont.mailingState=StateList[Integer.valueof(Math.Random()*StateList.size())];
             newCont.mailingPostalCode=String.valueof(Integer.valueof(Math.Random()*99999));
+            newCont.BirthDate=Date.today()-Integer.valueof(newCont.age__c*365)-Integer.valueof(Math.random()*364);
             if (Math.Random()>=0.5){
                 newCont.sex__c='Male';
                 newCont.FirstName=FirstNameMaleList[Integer.valueof(Math.random()*FirstNameMaleList.size())];
