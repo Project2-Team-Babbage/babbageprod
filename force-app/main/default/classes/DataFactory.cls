@@ -90,24 +90,87 @@ public class DataFactory{
 
     }
     public static void CreateContacts(integer n){
-        try{
-            CreateDoctors(Integer.valueof(Math.Ceil(n/2)),2,true);
-        }
-        catch(exception e){
-            System.assert(false,'Failed to create doctors: '+e.getMessage());
-        }
-        try{
-            createCustomers(Integer.valueof(Math.Floor(n/2)));
-        }
-        catch(exception e){
-            System.assert(false,'Failed to create customers: '+e.getMessagE());
-        }
+        CreateDoctors(Integer.valueof(Math.Ceil(n/2)),2,true);
+        createCustomers(Integer.valueof(Math.Floor(n/2)));
     }
     public static void CreateDoctors(integer n, integer numResidences, boolean randomNumResidences){
-        
+        List<Contact> contactList=new List<Contact>();
+        ID accountID=[SELECT ID FROM Account WHERE Name='Doctor Account' LIMIT 1].ID;
+        ID recordTypeID=[SELECT ID FROM RecordType WHERE Name='Doctor' and sObjectType='Contact' LIMIT 1].ID;
+        for(integer i=0;i<n;i++)
+        {
+            Contact newCont=new Contact();
+            newCont.RecordTypeID=recordTypeID;
+            newCont.AccountID =accountID;
+            newCont.email=defaultEmail;
+            if (Math.Random()>=0.5){
+                newCont.sex__c='Male';
+                newCont.FirstName=FirstNameMaleList[Integer.valueof(Math.random()*FirstNameMaleList.size())];
+                newCont.LastName=LastNameList[Integer.valueof(Math.random()*LastNameList.size())];
+            }
+            else{
+                newCont.sex__c='Female';
+                newCont.FirstName=FirstNameFemaleList[Integer.valueof(Math.random()*FirstNameFemaleList.size())];
+                newCont.LastName=LastNameList[Integer.valueof(Math.random()*LastNameList.size())];
+            }
+
+            List<Schema.PickListEntry> LanguageList=Contact.language__c.getDescribe().getPicklistValues();
+            newCont.languages__c='';
+            for(integer j=Integer.valueof(Math.floor(Math.Random()*2));j>=0;j--)
+            {
+                integer randNum=Integer.valueof(Math.floor(Math.Random()*(LanguageList.size()-1)));
+                newCont.languages__c=LanguageList[randNum].getValue()+';'+newCont.languages__c;
+                LanguageList.remove(randNum);
+            }
+
+            List<Schema.PickListEntry> specList=Contact.specialization__c.getDescribe().getPicklistValues();
+            newCont.specialization__c=specList[Integer.valueof(Math.floor(Math.random()*(specList.size()-1)))].getValue();
+            contactList.add(newCont);
+        }
+        insert contactList;
     }
     public static void CreateCustomers(integer n){
+        List<Contact> contactList=new List<Contact>();
+        ID accountID=[SELECT ID FROM Account WHERE Name='Customer Account' LIMIT 1].ID;
+        ID recordTypeID=[SELECT ID FROM RecordType WHERE Name='Customer' and sObjectType='Contact' LIMIT 1].ID;
+        for(integer i=0;i<n;i++)
+        {
+            Contact newCont=new Contact();
+            newCont.RecordTypeID=recordTypeID;
+            newCont.AccountID =accountID;
+            newCont.email=defaultEmail;
+            newCont.phone=(Math.mod(Integer.valueof(Math.Random()*999),899)+100)+'-'+
+                (Math.mod(Integer.valueof(Math.Random()*999),899)+100)+'-'+
+                (Math.mod(Integer.valueof(Math.Random()*9999),8999)+1000);
+            newCont.age__c=Integer.valueof(Math.floor(Math.Random()*50))+14;
+            newCont.mailingStreet=Integer.valueof((Math.Random()*9999))+' '+
+                StreetNameList[Integer.valueof(Math.Random()*StreetNameList.size())];
+            newCont.mailingCity=CityList[Integer.valueof(Math.Random()*CityList.size())];
+            newCont.mailingState=StateList[Integer.valueof(Math.Random()*StateList.size())];
+            newCont.mailingPostalCode=String.valueof(Integer.valueof(Math.Random()*99999));
+            if (Math.Random()>=0.5){
+                newCont.sex__c='Male';
+                newCont.FirstName=FirstNameMaleList[Integer.valueof(Math.random()*FirstNameMaleList.size())];
+                newCont.LastName=LastNameList[Integer.valueof(Math.random()*LastNameList.size())];
+            }
+            else{
+                newCont.sex__c='Female';
+                newCont.FirstName=FirstNameFemaleList[Integer.valueof(Math.random()*FirstNameFemaleList.size())];
+                newCont.LastName=LastNameList[Integer.valueof(Math.random()*LastNameList.size())];
+            }
 
+            List<Schema.PickListEntry> conditionsList=Contact.conditions__c.getDescribe().getPicklistValues();
+            newCont.conditions__c='';
+            for(Double j=Math.Random()*10;j>6;j=j-3)
+            {
+                integer randNum=Integer.valueof(Math.floor(Math.Random()*(conditionsList.size()-1)));
+                newCont.conditions__c=conditionsList[randNum].getValue()+';'+newCont.conditions__c;
+                conditionsList.remove(randNum);
+            }
+            contactList.add(newCont);
+
+        }
+        insert contactList;
     }
     public static void CreateAppointments(integer n){
 
@@ -146,5 +209,7 @@ public class DataFactory{
     }
     public static void DeleteAllRecords(){
         DELETE [SELECT ID FROM Office_Location__c];
+        DELETE [SELECT ID FROM Case];
+        DELETE [SELECT ID FROM Contact];
     }
 }
