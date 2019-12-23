@@ -10,7 +10,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>testBabbage</apexClass>
+        <apexClass>CustomerAppointmentPageController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
