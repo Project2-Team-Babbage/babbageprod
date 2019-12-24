@@ -30,6 +30,11 @@
                 <default>false</default>
                 <label>Completed</label>
             </value>
+            <value>
+                <fullName>Rescheduled</fullName>
+                <default>false</default>
+                <label>Rescheduled</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

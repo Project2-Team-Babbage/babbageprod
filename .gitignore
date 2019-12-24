@@ -22,6 +22,9 @@ node_modules/
 # MacOS system files
 .DS_Store
 
+# VS code files
+.vscode/
+
 # Windows system files
 Thumbs.db
 ehthumbs.db
