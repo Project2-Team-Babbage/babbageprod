@@ -258,7 +258,7 @@ public class DataFactory{
             office.Name=OfficeNameList[Integer.valueof(Math.Random()*OfficeNameList.size())];
             office.city__c=CityList[Integer.valueof(Math.Random()*CityList.size())];
             office.State__c=StateList[Integer.valueof(Math.Random()*StateList.size())];
-            office.zip_code__c=String.valueof(Integer.valueof(Math.Random()*99999));
+            office.zip_code__c=Integer.valueof(Math.Random()*99999);
             office.phone__c=(Math.mod(Integer.valueof(Math.Random()*999),899)+100)+'-'+
                 (Math.mod(Integer.valueof(Math.Random()*999),899)+100)+'-'+
                 (Math.mod(Integer.valueof(Math.Random()*9999),8999)+1000);
