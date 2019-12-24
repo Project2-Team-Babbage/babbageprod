@@ -234,7 +234,9 @@ public class DataFactory{
                     when 'Confirmed','Changed','Rejected','Rescheduled'{
                         newAppointment.doctor_message__c=defaultDoctorMessage;
                     }
-                    when else{
+                    when 'Completed'{
+                        newAppointment.status__c='Confirmed';
+                        
                     }
 
                 }
