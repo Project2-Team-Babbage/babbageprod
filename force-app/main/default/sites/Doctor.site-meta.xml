@@ -23,7 +23,11 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
+<<<<<<< HEAD
     <siteAdmin>cliu.jonathan@cunning-fox-e9s5yy.com</siteAdmin>
+=======
+    <siteAdmin>ben.learn@resourceful-wolf-9ofza7.com</siteAdmin>
+>>>>>>> origin/ben
     <siteType>ChatterNetwork</siteType>
     <subdomain>babbageproject2-developer-edition</subdomain>
     <urlPathPrefix>Doctor</urlPathPrefix>

@@ -3,6 +3,7 @@
     <types>
         <members>BabbageCommunityUser</members>
         <members>DataFactory</members>
+        <members>CustomerAppointmentPageController</members>
         <name>ApexClass</name>
     </types>
 
