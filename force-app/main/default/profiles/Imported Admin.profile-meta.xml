@@ -11,7 +11,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CustomerSearchRecordController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CustomerAppointmentPageController</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
     <fieldPermissions>

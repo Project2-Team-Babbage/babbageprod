@@ -23,7 +23,7 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>john.mulloy@curious-wolf-3vmrsk.com</siteAdmin>
+    <siteAdmin>ben.learn@resourceful-wolf-9ofza7.com</siteAdmin>
     <siteType>ChatterNetwork</siteType>
     <subdomain>curious-wolf-3vmrsk-developer-edition</subdomain>
     <urlPathPrefix>Doctor</urlPathPrefix>
