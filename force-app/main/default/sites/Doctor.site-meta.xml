@@ -23,7 +23,7 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>keatonbn@revature.net</siteAdmin>
+    <siteAdmin>keaton.boardman@curious-hawk-s1zg1z.com</siteAdmin>
     <siteType>ChatterNetwork</siteType>
     <subdomain>babbageproject2-developer-edition</subdomain>
     <urlPathPrefix>Doctor</urlPathPrefix>
