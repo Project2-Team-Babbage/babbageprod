@@ -10,7 +10,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD
+        <apexClass>CustomerSearchRecordController</apexClass>
+=======
         <apexClass>CustomerAppointmentPageController</apexClass>
+>>>>>>> origin/ben
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -123,6 +127,11 @@
         <editable>false</editable>
         <field>Contact.Language__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Languages__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
