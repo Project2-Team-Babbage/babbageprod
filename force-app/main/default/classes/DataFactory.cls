@@ -54,12 +54,21 @@ public class DataFactory{
         'Sample Office'
     };
 
+    static string[] DescriptionList=new List<String>{
+        'Owie ouchie',
+        'Oof. I\'m hurting really bad',
+        'Yowch',
+        'Big boo boo'
+    };
+
+    static string defaultDoctorMessage='Default Message';
+
     public static void CreateAll(integer n){
         InitalizeAccounts();
         CreateOfficeLocations(n);
         CreateContacts(n);
         CreateResidences(3);
-        CreateAppointments(2);
+        CreateAppointments(3);
         CreateSearches(6);
         CreateDoctorsSurveys(3);
         CreateOfficeSurveys(3);        
@@ -107,8 +116,8 @@ public class DataFactory{
     }
     */
     public static void CreateContacts(integer n){
-        CreateDoctors(Integer.valueof(Math.Ceil(n/2)));
-        createCustomers(Integer.valueof(Math.Floor(n/2)));
+        CreateDoctors(n);
+        createCustomers(n);
     }
     public static void CreateDoctors(integer n){
         List<Contact> contactList=new List<Contact>();
@@ -132,11 +141,11 @@ public class DataFactory{
             }
 
             List<Schema.PickListEntry> LanguageList=Contact.language__c.getDescribe().getPicklistValues();
-            newCont.languages__c='';
+            newCont.language__c='';
             for(integer j=Integer.valueof(Math.floor(Math.Random()*2));j>=0;j--)
             {
                 integer randNum=Integer.valueof(Math.floor(Math.Random()*(LanguageList.size()-1)));
-                newCont.languages__c=LanguageList[randNum].getValue()+';'+newCont.languages__c;
+                newCont.language__c=LanguageList[randNum].getValue()+';'+newCont.language__c;
                 LanguageList.remove(randNum);
             }
 
@@ -192,7 +201,55 @@ public class DataFactory{
         insert contactList;
     }
     public static void CreateAppointments(integer maxAppointment){
-        
+        List<Contact> DocList=[SELECT ID,Language__c FROM Contact WHERE RecordTypeID in (SELECT ID FROM RecordType WHERE SObjectType='Contact' AND Name = 'Doctor')];
+        List<Contact> CustList=[SELECT ID FROM Contact WHERE RecordTypeID in (SELECT ID FROM RecordType WHERE SObjectType='Contact' AND Name = 'Customer')];
+        List<Residence__C> ResList=[SELECT ID, Doctor__c FROM Residence__c];
+        List<Appointment__c> appointList=new List<Appointment__C>();
+        Map<ID,ID> ResDocMap=new Map<ID,ID>();
+        Map<ID,List<String>> DocLanMap=new Map<ID,List<String>>();
+        for (integer i=0;i<ResList.size();i++)
+        {
+            ResDocMap.put(ResList[i].ID,ResList[i].Doctor__c);
+        }
+        for(integer i=0;i<DocList.size();i++)
+        {
+            DocLanMap.put(DocList[i].ID, DocList[i].Language__c.split(';'));
+        }
+
+        List<Schema.PicklistEntry> statusList = appointment__c.status__c.getDescribe().getPicklistValues();
+        for(integer i=0;i<CustList.size();i++)
+        {
+            for(integer j=0;j<Integer.valueof(Math.Random()*(maxAppointment-1))+1;j++)
+            {
+                Appointment__c newAppointment = new Appointment__C();
+                newAppointment.Customer__c=CustList[i].ID;
+                newAppointment.Residence__c=ResList[Integer.valueof(Math.Random()*(ResList.size()-1))].ID;
+                newAppointment.Doctor__c=ResDocMap.get(newAppointment.Residence__c);
+                List<String> lanList=DocLanMap.get(newAppointment.Doctor__c);
+                newAppointment.language_preference__c=lanList[Integer.valueof(Math.Random()*(lanList.size()-1))];
+                
+                newAppointment.description__c=DescriptionList[Integer.valueof(Math.Random()*(DescriptionList.size()-1))];
+                newAppointment.status__c=statusList[Integer.valueof(Math.Random()*(statusList.size()-1))].getValue();
+                Integer timeMod=1;
+                switch on newAppointment.status__c{
+                    when 'Completed'{
+                        timeMod=-1;
+                    }
+                    when 'Confirmed','Changed','Rejected'{
+                        newAppointment.doctor_message__c=defaultDoctorMessage;
+                    }
+                    when 'Pending'{
+                    }
+
+                }
+                newAppointment.start_time__c=DateTime.now().addDays(
+                    timeMod*Integer.valueof((Math.Random()*14)+1)).addHours(
+                        Integer.valueof((Math.Random()*4))-2).addMinutes(
+                            Integer.valueof((Math.Random()*60)));
+                appointList.add(newAppointment);
+            }
+        }
+        insert appointList;
     }
     public static void CreateOfficeLocations(integer n){
         List<Office_Location__c> officeList=new List<Office_Location__c>();
@@ -224,7 +281,8 @@ public class DataFactory{
                 Residence__c newResidence=new Residence__C();
                 newResidence.doctor__c=DocList[i].Id;
                 newResidence.office_location__c=TempLocList[rand].Id;
-                tempLocList.remove(rand);
+                if(tempLocList.size()>1)
+                    tempLocList.remove(rand);
                 ResList.add(newResidence);
             }
         }
@@ -240,6 +298,7 @@ public class DataFactory{
 
     }
     public static void DeleteAll(){
+        DELETE [SELECT ID FROM Appointment__c];
         DELETE [SELECT ID FROM Residence__c];
         DELETE [SELECT ID FROM Office_Location__c];
         DELETE [SELECT ID FROM Case];
