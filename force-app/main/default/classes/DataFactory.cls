@@ -144,13 +144,13 @@ public class DataFactory{
             newCont.language__c='';
             for(integer j=Integer.valueof(Math.floor(Math.Random()*2));j>=0;j--)
             {
-                integer randNum=Integer.valueof(Math.floor(Math.Random()*(LanguageList.size()-1)));
+                integer randNum=Integer.valueof(Math.Random()*(LanguageList.size()));
                 newCont.language__c=LanguageList[randNum].getValue()+';'+newCont.language__c;
                 LanguageList.remove(randNum);
             }
 
             List<Schema.PickListEntry> specList=Contact.specialization__c.getDescribe().getPicklistValues();
-            newCont.specialization__c=specList[Integer.valueof(Math.floor(Math.random()*(specList.size()-1)))].getValue();
+            newCont.specialization__c=specList[Integer.valueof(Math.floor(Math.random()*(specList.size())))].getValue();
             contactList.add(newCont);
         }
         insert contactList;
@@ -191,7 +191,7 @@ public class DataFactory{
             newCont.conditions__c='';
             for(Double j=Math.Random()*10;j>6;j=j-3)
             {
-                integer randNum=Integer.valueof(Math.floor(Math.Random()*(conditionsList.size()-1)));
+                integer randNum=Integer.valueof(Math.floor(Math.Random()*(conditionsList.size())));
                 newCont.conditions__c=conditionsList[randNum].getValue()+';'+newCont.conditions__c;
                 conditionsList.remove(randNum);
             }
@@ -223,27 +223,23 @@ public class DataFactory{
             {
                 Appointment__c newAppointment = new Appointment__C();
                 newAppointment.Customer__c=CustList[i].ID;
-                newAppointment.Residence__c=ResList[Integer.valueof(Math.Random()*(ResList.size()-1))].ID;
+                newAppointment.Residence__c=ResList[Integer.valueof(Math.Random()*(ResList.size()))].ID;
                 newAppointment.Doctor__c=ResDocMap.get(newAppointment.Residence__c);
                 List<String> lanList=DocLanMap.get(newAppointment.Doctor__c);
-                newAppointment.language_preference__c=lanList[Integer.valueof(Math.Random()*(lanList.size()-1))];
+                newAppointment.language_preference__c=lanList[Integer.valueof(Math.Random()*(lanList.size()))];
                 
-                newAppointment.description__c=DescriptionList[Integer.valueof(Math.Random()*(DescriptionList.size()-1))];
-                newAppointment.status__c=statusList[Integer.valueof(Math.Random()*(statusList.size()-1))].getValue();
-                Integer timeMod=1;
+                newAppointment.description__c=DescriptionList[Integer.valueof(Math.Random()*(DescriptionList.size()))];
+                newAppointment.status__c=statusList[Integer.valueof(Math.Random()*(statusList.size()))].getValue();
                 switch on newAppointment.status__c{
-                    when 'Completed'{
-                        timeMod=-1;
-                    }
-                    when 'Confirmed','Changed','Rejected'{
+                    when 'Confirmed','Changed','Rejected','Rescheduled'{
                         newAppointment.doctor_message__c=defaultDoctorMessage;
                     }
-                    when 'Pending'{
+                    when else{
                     }
 
                 }
                 newAppointment.start_time__c=DateTime.now().addDays(
-                    timeMod*Integer.valueof((Math.Random()*14)+1)).addHours(
+                    Integer.valueof((Math.Random()*14)+1)).addHours(
                         Integer.valueof((Math.Random()*4))-2).addMinutes(
                             Integer.valueof((Math.Random()*60)));
                 appointList.add(newAppointment);
@@ -277,7 +273,7 @@ public class DataFactory{
             List<Office_Location__c> TempLocList=LocList;
             Integer randNumRes=Integer.valueof(Math.Random()*(maxRes-1))+1;
             for(integer j=0;j<randNumRes;j++){
-                Integer rand=Integer.valueof(Math.Random()*(TempLocList.size()-1));
+                Integer rand=Integer.valueof(Math.Random()*(TempLocList.size()));
                 Residence__c newResidence=new Residence__C();
                 newResidence.doctor__c=DocList[i].Id;
                 newResidence.office_location__c=TempLocList[rand].Id;
