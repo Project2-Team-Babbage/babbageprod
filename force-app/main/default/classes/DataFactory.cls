@@ -70,7 +70,7 @@ public class DataFactory{
         CreateResidences(3);
         CreateAppointments(3);
         CreateSearches(6);
-        CreateDoctorsSurveys(3);
+        CreateDoctorSurveys(3);
         CreateOfficeSurveys(3);        
     }
     public static void InitalizeAccounts(){
@@ -289,13 +289,38 @@ public class DataFactory{
     public static void CreateOfficeSurveys(integer maxSurvey){
 
     }
-    public static void CreateDoctorsSurveys(integer maxSurvey){
+    public static void CreateDoctorSurveys(integer maxSurvey){
 
     }
     public static void CreateSearches(integer maxSearch){
-
+        List<Search__c> searchList=new List<Search__c>();
+        List<Contact> CustList=[SELECT ID FROM Contact WHERE RecordTypeID in (SELECT ID FROM RecordType WHERE SObjectType='Contact' AND Name = 'Customer')];
+        for (integer i=0;i<custList.size();i++){
+            for (integer j=0;j<maxSearch;j++){
+                Search__c newSearch=new Search__C();
+                newSearch.contact__c=custList[i].Id;
+                List<Schema.PicklistEntry> specList=contact.specialization__c.getDescribe().getPickListValues();
+                newSearch.Specialization__c=specList[Integer.valueof(Math.Random()*specList.size())].getValue();
+                List<Schema.PicklistEntry> langList=contact.language__c.getDescribe().getPickListValues();
+                newSearch.Language__c=langList[Integer.valueof(Math.Random()*langList.size())].getValue();
+                Double randNum=Math.Random();
+                if(randNum<0.3){
+                    newSearch.sex__c='Male';
+                }
+                else if(randNum<0.6){
+                    newSearch.sex__c='Female';
+                }
+                //newSearch.TimeStamp__c=DateTime.now().addDays(
+                //    -1*Integer.valueof((Math.Random()*14)+1)).addHours(
+                //        Integer.valueof((Math.Random()*4))-2).addMinutes(
+                //            Integer.valueof((Math.Random()*60)));
+                searchList.add(newSearch);
+            }
+        }
+        insert searchList;
     }
     public static void DeleteAll(){
+        DELETE [SELECT ID FROM Search__C];
         DELETE [SELECT ID FROM Appointment__c];
         DELETE [SELECT ID FROM Residence__c];
         DELETE [SELECT ID FROM Office_Location__c];
