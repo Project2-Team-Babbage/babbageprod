@@ -57,11 +57,13 @@ public class DataFactory{
     public static void CreateAll(integer n){
         CreateOfficeLocations(n);
         CreateContacts(n);
+        CreateResidences();
         CreateAppointments(n);
         CreateSearches(n);
         CreateDoctorsSurveys(n);
         CreateOfficeSurveys(n);        
     }
+    /* Use BabbageCommunityUser.cls to create Users
     public static void CreateUsers(integer n, UserType type){
         ID profileID= [SELECT ID FROM Profile WHERE Name='Babbage Customer User' LIMIT 1].ID;
         Account userAccount=[SELECT ID FROM Account WHERE name=':type.name() Account' LIMIT 1];
@@ -87,13 +89,13 @@ public class DataFactory{
 
             }
         }
-
     }
+    */
     public static void CreateContacts(integer n){
-        CreateDoctors(Integer.valueof(Math.Ceil(n/2)),2,true);
+        CreateDoctors(Integer.valueof(Math.Ceil(n/2)));
         createCustomers(Integer.valueof(Math.Floor(n/2)));
     }
-    public static void CreateDoctors(integer n, integer numResidences, boolean randomNumResidences){
+    public static void CreateDoctors(integer n){
         List<Contact> contactList=new List<Contact>();
         ID accountID=[SELECT ID FROM Account WHERE Name='Doctor Account' LIMIT 1].ID;
         ID recordTypeID=[SELECT ID FROM RecordType WHERE Name='Doctor' and sObjectType='Contact' LIMIT 1].ID;
@@ -128,6 +130,7 @@ public class DataFactory{
             contactList.add(newCont);
         }
         insert contactList;
+
     }
     public static void CreateCustomers(integer n){
         List<Contact> contactList=new List<Contact>();
@@ -174,7 +177,7 @@ public class DataFactory{
         insert contactList;
     }
     public static void CreateAppointments(integer n){
-
+        
     }
     public static void CreateOfficeLocations(integer n){
         List<Office_Location__c> officeList=new List<Office_Location__c>();
@@ -194,10 +197,23 @@ public class DataFactory{
         }
         insert officeList;
     }
-    public static void CreateResidences(integer n, ID doctorID){
-        //get doc list
-        //get office list
-
+    public static void CreateResidences(){
+        List<Contact> DocList=[SELECT ID FROM Contact WHERE RecordTypeId in (SELECT ID FROM RecordType WHERE SObjectType='Contact' AND Name = 'Doctor')];
+        List<Office_location__c> LocList=[SELECT ID FROM Office_Location__c];
+        List<Residence__c> ResList=new List<Residence__c>();
+        for (integer i=0; i<DocList.size();i++){
+            List<Office_Location__c> TempLocList=LocList;
+            Integer randNumRes=Integer.valueof(Math.Random()*2)+1;
+            for(integer j=0;j<randNumRes;j++){
+                Integer rand=Integer.valueof(Math.Random()*(TempLocList.size()-1));
+                Residence__c newResidence=new Residence__C();
+                newResidence.doctor__c=DocList[i].Id;
+                newResidence.office_location__c=TempLocList[rand].Id;
+                tempLocList.remove(rand);
+                ResList.add(newResidence);
+            }
+        }
+        insert ResList;
     }
     public static void CreateOfficeSurveys(integer n){
 
@@ -208,7 +224,8 @@ public class DataFactory{
     public static void CreateSearches(integer n){
 
     }
-    public static void DeleteAllRecords(){
+    public static void DeleteAll(){
+        DELETE [SELECT ID FROM Residence__c];
         DELETE [SELECT ID FROM Office_Location__c];
         DELETE [SELECT ID FROM Case];
         DELETE [SELECT ID FROM Contact];
