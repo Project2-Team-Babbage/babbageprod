@@ -58,11 +58,11 @@ public class DataFactory{
         InitalizeAccounts();
         CreateOfficeLocations(n);
         CreateContacts(n);
-        CreateResidences();
-        CreateAppointments(n);
-        CreateSearches(n);
-        CreateDoctorsSurveys(n);
-        CreateOfficeSurveys(n);        
+        CreateResidences(3);
+        CreateAppointments(2);
+        CreateSearches(6);
+        CreateDoctorsSurveys(3);
+        CreateOfficeSurveys(3);        
     }
     public static void InitalizeAccounts(){
         if([SELECT ID FROM Account WHERE Name='Doctor Account' LIMIT 1].size()!=1)
@@ -191,7 +191,7 @@ public class DataFactory{
         }
         insert contactList;
     }
-    public static void CreateAppointments(integer n){
+    public static void CreateAppointments(integer maxAppointment){
         
     }
     public static void CreateOfficeLocations(integer n){
@@ -212,13 +212,13 @@ public class DataFactory{
         }
         insert officeList;
     }
-    public static void CreateResidences(){
+    public static void CreateResidences(integer maxRes){
         List<Contact> DocList=[SELECT ID FROM Contact WHERE RecordTypeId in (SELECT ID FROM RecordType WHERE SObjectType='Contact' AND Name = 'Doctor')];
         List<Office_location__c> LocList=[SELECT ID FROM Office_Location__c];
         List<Residence__c> ResList=new List<Residence__c>();
         for (integer i=0; i<DocList.size();i++){
             List<Office_Location__c> TempLocList=LocList;
-            Integer randNumRes=Integer.valueof(Math.Random()*2)+1;
+            Integer randNumRes=Integer.valueof(Math.Random()*(maxRes-1))+1;
             for(integer j=0;j<randNumRes;j++){
                 Integer rand=Integer.valueof(Math.Random()*(TempLocList.size()-1));
                 Residence__c newResidence=new Residence__C();
@@ -230,13 +230,13 @@ public class DataFactory{
         }
         insert ResList;
     }
-    public static void CreateOfficeSurveys(integer n){
+    public static void CreateOfficeSurveys(integer maxSurvey){
 
     }
-    public static void CreateDoctorsSurveys(integer n){
+    public static void CreateDoctorsSurveys(integer maxSurvey){
 
     }
-    public static void CreateSearches(integer n){
+    public static void CreateSearches(integer maxSearch){
 
     }
     public static void DeleteAll(){
