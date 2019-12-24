@@ -55,6 +55,7 @@ public class DataFactory{
     };
 
     public static void CreateAll(integer n){
+        InitalizeAccounts();
         CreateOfficeLocations(n);
         CreateContacts(n);
         CreateResidences();
@@ -62,6 +63,20 @@ public class DataFactory{
         CreateSearches(n);
         CreateDoctorsSurveys(n);
         CreateOfficeSurveys(n);        
+    }
+    public static void InitalizeAccounts(){
+        if([SELECT ID FROM Account WHERE Name='Doctor Account' LIMIT 1].size()!=1)
+        {
+            Account newAcc = new Account();
+            newAcc.Name='Doctor Account';
+            insert newAcc;
+        }
+        if([SELECT ID FROM Account WHERE Name='Customer Account' LIMIT 1].size()!=1)
+        {
+            Account newAcc=new Account();
+            newAcc.Name='Customer Account';
+            insert newAcc;
+        }
     }
     /* Use BabbageCommunityUser.cls to create Users
     public static void CreateUsers(integer n, UserType type){
