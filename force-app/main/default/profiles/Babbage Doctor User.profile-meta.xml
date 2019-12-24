@@ -10,11 +10,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
         <apexClass>CustomerSearchRecordController</apexClass>
-=======
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CustomerAppointmentPageController</apexClass>
->>>>>>> origin/ben
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
