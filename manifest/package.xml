@@ -6,6 +6,7 @@
     <types>
         <members>CustomerSearchRequestPageController</members>
         <members>BabbageCommunityUser</members>
+        <members>DataFactory</members>
         <name>ApexClass</name>
     </types>
 
