@@ -4,10 +4,8 @@
 
 
     <types>
-        <members>CustomerSearchRecordController</members>
+        <members>CustomerSearchRequestPageController</members>
         <members>BabbageCommunityUser</members>
-        <members>CustomerSearchPageController</members>
-        <members>CustomerAppointmentPageController</members>
         <name>ApexClass</name>
     </types>
 
@@ -19,6 +17,8 @@
     <types>
         <members>EnableCustomerUser</members>
         <members>EnableDoctorUser</members>
+        <members>CustomerSearchRequestPage</members>
+        <members>CustomerSearchPage</members>
         <name>AuraDefinitionBundle</name>
     </types>
 

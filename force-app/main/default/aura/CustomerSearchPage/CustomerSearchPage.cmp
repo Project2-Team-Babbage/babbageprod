@@ -1,0 +1,25 @@
+<aura:component controller="CustomerSearchRequestPageController">
+    <aura:handler name="init" value="{!this}" action="{!c.loadOptions}"/>
+    
+    <aura:attribute name="genderOptions" type="String[]"/>
+    <aura:attribute name="specializationOptions" type="String[]"/>
+    <aura:attribute name="languageOptions" type="List"/>
+    
+    <lightning:select name="genders" label="Preferred Doctor Gender:">
+        <option value="" text=""/>
+        <aura:iteration items="{!v.genderOptions}" var="genderOption">
+            <option value="{!genderOption}" text="{!genderOption}"/>
+        </aura:iteration>
+    </lightning:select>
+    
+    <lightning:select name="specializations" label="Doctor Specialization:">
+        <option value="" text=""/>
+        <aura:iteration items="{!v.specializationOptions}" var="specializationOption">
+            <option value="{!specializationOption}" text="{!specialization}"/>
+        </aura:iteration>
+    </lightning:select>
+    
+    <lightning:dualListbox name="languages" label= "Preferred Language(s):"
+                           sourceLabel="Available" selectedLabel="Selected"
+                           options="{!v.languageOptions}"/>
+</aura:component>
