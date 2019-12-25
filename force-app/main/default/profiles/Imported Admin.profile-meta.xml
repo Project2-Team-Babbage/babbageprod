@@ -13,6 +13,10 @@
         <apexClass>CustomerSearchRequestPageController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>DataFactory</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -227,11 +231,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Search__c.Specialization__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Search__c.Timestamp__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
