@@ -20,8 +20,14 @@
         var languageDual = component.get("c.getLanguageOptions");
         languageDual.setCallback(this, function(response){
             if(response.getState() === "SUCCESS"){
-                console.log(JSON.serialize(response.getReturnValue));
-                //component.set("v.languageOptions", response.getReturnValue());
+                var returnedOptions = response.getReturnValue();
+                var selectOptions = [];
+                var i;
+                for(i = 0; i < returnedOptions.length; i++){
+                    selectOptions.push({value:returnedOptions[i], 
+                                        label:returnedOptions[i]});
+                }
+                component.set("v.languageOptions", selectOptions);
             }
         })
         
@@ -29,5 +35,15 @@
         $A.enqueueAction(genderSelect);
         $A.enqueueAction(specializationSelect);
         $A.enqueueAction(languageDual);
-	}
+	},
+    
+    helperHandleSearch : function(component){
+        // validate and populate search object
+        // fields needed
+        // language__c
+        // sex__c
+        // specialization__c
+        // contact__c
+        
+    }
 })

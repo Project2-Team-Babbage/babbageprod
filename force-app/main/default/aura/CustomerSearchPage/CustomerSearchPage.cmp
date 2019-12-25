@@ -4,6 +4,7 @@
     <aura:attribute name="genderOptions" type="String[]"/>
     <aura:attribute name="specializationOptions" type="String[]"/>
     <aura:attribute name="languageOptions" type="List"/>
+    <aura:attribute name="search" type="Search__c"/>
     
     <lightning:select name="genders" label="Preferred Doctor Gender:">
         <option value="" text=""/>
@@ -21,5 +22,8 @@
     
     <lightning:dualListbox name="languages" label= "Preferred Language(s):"
                            sourceLabel="Available" selectedLabel="Selected"
-                           options="{!v.languageOptions}"/>
+                           options="{!v.languageOptions}" 
+                           value="{!v.search.Language__c}"/>
+    
+    <lightning:button label="Search" onclick="{!c.handleSearch}"/>
 </aura:component>
