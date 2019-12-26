@@ -4,17 +4,14 @@
 
 
     <types>
+        <!--PLACE APEX CONTROLER CLASSES HERE-->
         <members>CustomerSearchRecordController</members>
         <members>BabbageCommunityUser</members>
-<<<<<<< HEAD
-        <!--PLACE APEX CONTROLER CLASSES HERE-->
-
+        <members>CustomerAppointmentController</members>
         <members>DoctorAppointmentController</members>
-=======
         <members>DataFactory</members>
         <members>CustomerSearchPageController</members>
         <members>CustomerAppointmentPageController</members>
->>>>>>> 9fd0615eaa96bda129dec2c084bed972d839757c
         <name>ApexClass</name>
     </types>
 
@@ -25,7 +22,7 @@
 
     <types>
         <!--PLACE AURA COMPONENT FILE NAMES HERE-->
-        
+        <members>CustomerAppointmentPage</members>
         <members>EnableCustomerUser</members>
         <members>EnableDoctorUser</members>
         <name>AuraDefinitionBundle</name>
