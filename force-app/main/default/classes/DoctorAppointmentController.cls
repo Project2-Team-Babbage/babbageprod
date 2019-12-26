@@ -6,4 +6,21 @@ global class DoctorAppointmentController {
         appointments.add([SELECT customer__r.Name, customer__r.email, Start_time__c, Description__c, Language_Preference__c, residence__r.office_location__r.Name FROM Appointment__c WHERE DAY_IN_WEEK(Start_time__c)=:i AND Start_time__c>=:startDay AND Start_Time__C<=:EndDay ORDER BY Start_time__c]);
         return appointments;
     }
+    @auraEnabled
+    global static String[] getAppointmentFilters(){
+        String[] filterList=new String[]{};
+        List<Schema.PickListEntry> picklistEntries=appointment__c.status__c.getDescribe().getPickListValues();
+        for (integer i=0;i<picklistEntries.size();i++)
+        {
+            filterList.add(picklistEntries[i].getValue());
+        }
+        return filterList;
+    }
+    @auraEnabled
+    global static List<Appointment__c> getAppointmentsByStatus(String Filter)
+    {
+        return [SELECT start_time__c, end_time__c, description__c,status__c FROM Appointment__c WHERE status__c=:Filter];
+
+        //return [SELECT customer__r.Name, start_time__c, end_time__c, description__c, language_preference__c, residence__r.office_location__c, status__c, doctor_message__c FROM Appointment__c WHERE status__c=:Filter];
+    }
 }

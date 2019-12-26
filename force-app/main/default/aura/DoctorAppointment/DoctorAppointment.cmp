@@ -1,5 +1,5 @@
 <aura:component>
-    <c.DoctorAppointmentCalander/>
+    <!--<c.DoctorAppointmentCalander/>-->
     <c.DoctorAppointmentPending/>
     <c.DoctorAppointmentAll/>
 </aura:component>
