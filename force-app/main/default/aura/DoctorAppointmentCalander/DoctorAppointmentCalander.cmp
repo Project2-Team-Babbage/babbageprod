@@ -5,12 +5,12 @@
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     <div class='slds-text-align_center'>
         <div class='slds-grid slds-grid_align-center'>
-            <lightning:buttonIcon class='slds-col slds-size_1-of-5' iconName="utility:chevronleft" size="large" alternativeText="Last Week's Schedule" />
+            <lightning:buttonIcon class='slds-col slds-size_1-of-5' iconName="utility:chevronleft" size="large" onclick="{!c.LastTimeFrame}" alternativeText="Last Week's Schedule" />
             <span class='slds-col slds-text_heading_medium slds-size_1-of-3' style='padding:0.5rem'> 
                 <lightning:formattedDateTime value="{!v.timeFrameStart}"/> - 
                 <lightning:formattedDateTime value="{!v.timeFrameEnd}"/>
             </span>
-            <lightning:buttonIcon class='slds-col slds-size_1-of-5' iconName="utility:chevronright" size="large" alternativeText="Next Week's Schedule" />
+            <lightning:buttonIcon class='slds-col slds-size_1-of-5' iconName="utility:chevronright" size="large" onclick="{!c.NextTimeFrame}" alternativeText="Next Week's Schedule" />
         </div>
         <div class='slds-grid slds-grid_align-center'>
             <div class='slds-col slds-size_1-of-7'>
