@@ -3,10 +3,9 @@
     <fullName>Zip_Code__c</fullName>
     <externalId>false</externalId>
     <label>Zip Code</label>
-    <precision>5</precision>
+    <length>5</length>
     <required>true</required>
-    <scale>0</scale>
     <trackTrending>false</trackTrending>
-    <type>Number</type>
+    <type>Text</type>
     <unique>false</unique>
 </CustomField>

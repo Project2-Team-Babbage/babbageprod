@@ -10,15 +10,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CustomerAppointmentPageController</apexClass>
+        <apexClass>CustomerAppointmentController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CustomerSearchPageController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CustomerSearchRecordController</apexClass>
+        <apexClass>DoctorAppointmentController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
