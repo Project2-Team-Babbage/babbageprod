@@ -4,9 +4,16 @@ public class CustomerSearchRequestPageController{
         insert app;
     }
     
+    // function to return matching doctors based on soql query
     @AuraEnabled
-    public static List<Contact> dsearch(string searchquery){
+    public static List<Residence__c> returnMatchingDoctors(string searchquery){
         return Database.query(searchquery);  
+    }
+    
+    // function to insert search record when user clicks 'Search' button on CustomerSearchPage
+    @AuraEnabled
+    public static void insertSearchRecord(Search__c searchToInsert){
+        insert searchToInsert;
     }
     
     // function to return gender options for CustomerSearchPage

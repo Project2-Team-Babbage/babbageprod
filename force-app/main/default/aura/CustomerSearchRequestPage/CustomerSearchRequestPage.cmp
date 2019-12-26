@@ -1,3 +1,17 @@
-<aura:component implements="flexipage:AvailableforAllPageTypes">
+<aura:component implements="flexipage:AvailableforAllPageTypes,forceCommunity:availableForAllPageTypes"
+                access="global">
+    <!-- handler for event to update MatchingDoctors component -->
+    <aura:handler name="queryResults" event="c:CustomerSearchResults" 
+                  action="{!c.handleCustomerSearchResults}"/>
+    
+    <!-- handler for event to autopopulate CustomerRequestPage component -->
+    <aura:handler name="doctorSelected" event="c:DoctorSelected" 
+                  action="{!c.handleDoctorSelected}"/>
+    
+    <aura:attribute name="matchingDoctorsList" type="List"/>
+    <aura:attribute name="selectedDoctor" type="String"/>
+    
     <c:CustomerSearchPage/>
+    <c:MatchingDoctors matchingDoctorsList="{!v.matchingDoctorsList}"/>
+    <c:CustomerRequestPage/>
 </aura:component>

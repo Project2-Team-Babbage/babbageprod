@@ -11,7 +11,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CustomerSearchRequestPageController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DataFactory</apexClass>

@@ -124,7 +124,7 @@ public class DataFactory{
         ID accountID=[SELECT ID FROM Account WHERE Name='Doctor Account' LIMIT 1].ID;
         ID recordTypeID=[SELECT ID FROM RecordType WHERE Name='Doctor' and sObjectType='Contact' LIMIT 1].ID;
         for(integer i=0;i<n;i++)
-        {
+        {	
             Contact newCont=new Contact();
             newCont.RecordTypeID=recordTypeID;
             newCont.AccountID =accountID;

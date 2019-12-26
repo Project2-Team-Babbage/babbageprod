@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:attribute name="fields" type="String[]"
+                    default="['Start_Time__c', 'Language_Preference__c', 'Doctor__c', 
+                             'Residence__c', 'Description__c']"/>
+    
+    <lightning:recordForm objectApiName="Appointment__c" fields="{!v.fields}"/>
+
+</aura:component>
