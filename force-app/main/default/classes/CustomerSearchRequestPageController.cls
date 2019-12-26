@@ -1,9 +1,4 @@
 public class CustomerSearchRequestPageController{
-    @AuraEnabled
-    public static void requestAppointment(Appointment__c app){
-        insert app;
-    }
-    
     // function to return matching doctors based on soql query
     @AuraEnabled
     public static List<Residence__c> returnMatchingDoctors(string searchquery){
@@ -49,5 +44,12 @@ public class CustomerSearchRequestPageController{
             returnedOptions.add(spe.getValue());
         }
         return returnedOptions;
+    }
+    
+    // function to return language options for CustomerRequestPage
+    @AuraEnabled
+    public static List<String> getDoctorLanguages(String doctorId){
+        Contact doctor = [SELECT Id, Language__c FROM Contact WHERE Id=:doctorId LIMIT 1];
+        return doctor.Language__c.split(';');
     }
 }

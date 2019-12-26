@@ -29,7 +29,7 @@
                 }
                 component.set("v.languageOptions", selectOptions);
             }
-        })
+        });
         
         // enqueue all the actions
         $A.enqueueAction(genderSelect);
@@ -115,14 +115,13 @@
             // the CustomerSearchRequestPage component will handle and use to update
             // the MatchingDoctors component
             var callbackEvent = component.getEvent("queryResults");
-            console.log(response.getReturnValue());
             callbackEvent.setParams({"matchingDoctorResidences" : 
                                      response.getReturnValue()});
             callbackEvent.fire();
         });
         
         // enqueue the actions
-        //$A.enqueueAction(insertSearch);
+        $A.enqueueAction(insertSearch);
         $A.enqueueAction(returnResults);
     }
 })
