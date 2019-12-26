@@ -13,6 +13,10 @@
         helper.updateAppointments(component);
 
     },
+    updateAppointments : function(component,event,helper){
+        component.set('v.appointments',null);
+        helper.updateAppointments(component);
+    },
     NextTimeFrame : function(component, event, helper) {
         let start=new Date();
         let end=new Date();
