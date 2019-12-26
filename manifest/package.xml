@@ -23,6 +23,10 @@
     <types>
         <!--PLACE AURA COMPONENT FILE NAMES HERE-->
         <members>CustomerAppointmentPage</members>
+        <members>ConfirmedAppointmentDisplay</members>
+        <members>PendingAppointmentDisplay</members>
+        <members>RescheduledAppointmentDisplay</members>
+        <members>RejectedAppointmentDisplay</members>
         <members>EnableCustomerUser</members>
         <members>EnableDoctorUser</members>
         <name>AuraDefinitionBundle</name>
