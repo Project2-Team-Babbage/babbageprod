@@ -3,6 +3,7 @@
     <types>
         <members>BabbageCommunityUser</members>
         <!--PLACE APEX CONTROLER CLASSES HERE-->
+
         <members>DoctorAppointmentController</members>
         <name>ApexClass</name>
     </types>
@@ -13,6 +14,8 @@
     </types>
 
     <types>
+        <!--PLACE AURA COMPONENT FILE NAMES HERE-->
+        
         <members>EnableCustomerUser</members>
         <members>EnableDoctorUser</members>
         <name>AuraDefinitionBundle</name>
