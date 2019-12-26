@@ -9,6 +9,7 @@
         <members>DataFactory</members>
         <members>CustomerSearchPageController</members>
         <members>CustomerAppointmentPageController</members>
+        <members>DoctorAppointmentController</members>
         <name>ApexClass</name>
     </types>
 
@@ -20,6 +21,10 @@
     <types>
         <members>EnableCustomerUser</members>
         <members>EnableDoctorUser</members>
+        <members>DoctorAppointment</members>
+        <members>DoctorAppointmentCalander</members>
+        <members>DoctorAppointmentPending</members>
+        <members>DoctorAppointmentAll</members>
         <name>AuraDefinitionBundle</name>
     </types>
 

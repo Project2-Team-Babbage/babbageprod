@@ -1,0 +1,151 @@
+<aura:component controller="DoctorAppointmentController">
+    <aura:attribute name="appointments" type="List"/>
+    <aura:attribute name="timeFrameStart" type="Date"/>
+    <aura:attribute name="timeFrameEnd" type="Date"/>
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <div class='slds-text-align_center'>
+        <div class='slds-grid slds-grid_align-center'>
+            <lightning:buttonIcon class='slds-col slds-size_1-of-5' iconName="utility:chevronleft" size="large" alternativeText="Last Week's Schedule" />
+            <span class='slds-col slds-text_heading_medium slds-size_1-of-3' style='padding:0.5rem'> 
+                <lightning:formattedDateTime value="{!v.timeFrameStart}"/> - 
+                <lightning:formattedDateTime value="{!v.timeFrameEnd}"/>
+            </span>
+            <lightning:buttonIcon class='slds-col slds-size_1-of-5' iconName="utility:chevronright" size="large" alternativeText="Next Week's Schedule" />
+        </div>
+        <div class='slds-grid slds-grid_align-center'>
+            <div class='slds-col slds-size_1-of-7'>
+                <div class='slds-grid slds-grid_vertical'>
+                    <div class='slds-col slds-box'>
+                        Sunday
+                    </div>
+                    <div class='slds-col slds-box'>
+                        <aura:iteration var="apnt" items="{!v.appointments[0]}">
+                            <p>
+                                <lightning:formattedDateTime value="{!apnt.Start_Time__c}" hour="2-digit" minute="2-digit"/><br/>
+                                <div class='slds-text-align_left slds-border_bottom'>
+                                    {!apnt.Customer__r.Name}<br/>
+                                    {!apnt.Language_Preference__c} - {!apnt.Residence__r.Office_Location__r.Name}<br/>
+                                    "{!apnt.Description__c}"<br/>
+                                </div>
+                            </p>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>
+            <div class='slds-col slds-size_1-of-7'>
+                <div class='slds-grid slds-grid_vertical'>
+                    <div class='slds-col slds-box'>
+                        Monday
+                    </div>
+                    <div class='slds-col slds-box'>
+                        <aura:iteration var="apnt" items="{!v.appointments[1]}">
+                            <p>
+                                <lightning:formattedDateTime value="{!apnt.Start_Time__c}" hour="2-digit" minute="2-digit"/><br/>
+                                <div class='slds-text-align_left slds-border_bottom'>
+                                    {!apnt.Customer__r.Name}<br/>
+                                    {!apnt.Language_Preference__c} - {!apnt.Residence__r.Office_Location__r.Name}<br/>
+                                    "{!apnt.Description__c}"<br/>
+                                </div>
+                            </p>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>
+            <div class='slds-col slds-size_1-of-7'>
+                <div class='slds-grid slds-grid_vertical'>
+                    <div class='slds-col slds-box'>
+                        Tuesday
+                    </div>
+                    <div class='slds-col slds-box'>
+                        <aura:iteration var="apnt" items="{!v.appointments[2]}">
+                            <p>
+                                <lightning:formattedDateTime value="{!apnt.Start_Time__c}" hour="2-digit" minute="2-digit"/><br/>
+                                <div class='slds-text-align_left slds-border_bottom'>
+                                    {!apnt.Customer__r.Name}<br/>
+                                    {!apnt.Language_Preference__c} - {!apnt.Residence__r.Office_Location__r.Name}<br/>
+                                    "{!apnt.Description__c}"<br/>
+                                </div>
+                            </p>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>
+            <div class='slds-col slds-size_1-of-7'>
+                <div class='slds-grid slds-grid_vertical'>
+                    <div class='slds-col slds-box'>
+                        Wednesday
+                    </div>
+                    <div class='slds-col slds-box'>
+                        <aura:iteration var="apnt" items="{!v.appointments[3]}">
+                            <p>
+                                <lightning:formattedDateTime value="{!apnt.Start_Time__c}" hour="2-digit" minute="2-digit"/><br/>
+                                <div class='slds-text-align_left slds-border_bottom'>
+                                    {!apnt.Customer__r.Name}<br/>
+                                    {!apnt.Language_Preference__c} - {!apnt.Residence__r.Office_Location__r.Name}<br/>
+                                    "{!apnt.Description__c}"<br/>
+                                </div>
+                            </p>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>
+            <div class='slds-col slds-size_1-of-7'>
+                <div class='slds-grid slds-grid_vertical'>
+                    <div class='slds-col slds-box'>
+                        Thursday
+                    </div>
+                    <div class='slds-col slds-box'>
+                        <aura:iteration var="apnt" items="{!v.appointments[4]}">
+                            <p>
+                                <lightning:formattedDateTime value="{!apnt.Start_Time__c}" hour="2-digit" minute="2-digit"/><br/>
+                                <div class='slds-text-align_left slds-border_bottom'>
+                                    {!apnt.Customer__r.Name}<br/>
+                                    {!apnt.Language_Preference__c} - {!apnt.Residence__r.Office_Location__r.Name}<br/>
+                                    "{!apnt.Description__c}"<br/>
+                                </div>
+                            </p>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>
+            <div class='slds-col slds-size_1-of-7'>
+                <div class='slds-grid slds-grid_vertical'>
+                    <div class='slds-col slds-box'>
+                        Friday
+                    </div>
+                    <div class='slds-col slds-box'>
+                        <aura:iteration var="apnt" items="{!v.appointments[5]}">
+                            <p>
+                                <lightning:formattedDateTime value="{!apnt.Start_Time__c}" hour="2-digit" minute="2-digit"/><br/>
+                                <div class='slds-text-align_left slds-border_bottom'>
+                                    {!apnt.Customer__r.Name}<br/>
+                                    {!apnt.Language_Preference__c} - {!apnt.Residence__r.Office_Location__r.Name}<br/>
+                                    "{!apnt.Description__c}"<br/>
+                                </div>
+                            </p>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>            
+            <div class='slds-col slds-size_1-of-7'>
+                <div class='slds-grid slds-grid_vertical'>
+                    <div class='slds-col slds-box'>
+                        Saturday
+                    </div>
+                    <div class='slds-col slds-box'>
+                        <aura:iteration var="apnt" items="{!v.appointments[6]}">
+                            <p>
+                                <lightning:formattedDateTime value="{!apnt.Start_Time__c}" hour="2-digit" minute="2-digit"/><br/>
+                                <div class='slds-text-align_left slds-border_bottom'>
+                                    {!apnt.Customer__r.Name}<br/>
+                                    {!apnt.Language_Preference__c} - {!apnt.Residence__r.Office_Location__r.Name}<br/>
+                                    "{!apnt.Description__c}"<br/>
+                                </div>
+                            </p>
+                        </aura:iteration>
+                    </div>
+                </div>
+            </div>                     
+        </div>
+    </div>
+</aura:component>
