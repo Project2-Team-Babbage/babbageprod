@@ -7,8 +7,8 @@
             if(draftValues[i].Id==row.Id)
             {
                 draftValues[i].Status__c=updateValues.Status__c;
-                updateValues=draftValues[i];
-                component.find("appointmentTable").set("v.draftValues",draftValues.splice[i]);
+                updateValues=draftValues.splice(i,1);
+                component.find("appointmentTable").set("v.draftValues",draftValues);
                 break;
             }
         func.setParams({'appointment':updateValues});
