@@ -1,4 +1,4 @@
-<aura:component controller="DoctorAppointmentController">
+<aura:component controller="DoctorAppointmentController" implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="appointments" type="List"/>
     <aura:attribute name="timeFrameStart" type="Date"/>
     <aura:attribute name="timeFrameEnd" type="Date"/>

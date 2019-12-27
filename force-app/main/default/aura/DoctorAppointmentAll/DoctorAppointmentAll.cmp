@@ -1,4 +1,4 @@
-<aura:component controller="DoctorAppointmentController">
+<aura:component controller="DoctorAppointmentController" implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="StatusOptions" type="String[]"/>
     <aura:attribute name="AppointmentsList" type="Object"/>
     <aura:attribute name="AppointmentsModifiedList" type="Object"/>
