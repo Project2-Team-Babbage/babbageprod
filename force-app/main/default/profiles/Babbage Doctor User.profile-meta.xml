@@ -14,6 +14,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CustomerSearchPageController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CustomerSearchRecordController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DataFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -130,6 +138,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Language__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Languages__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -8,7 +8,7 @@ global class DoctorAppointmentController {
     }
     @auraEnabled
     global static String[] getAppointmentFilters(){
-        String[] filterList=new String[]{};
+        String[] filterList=new String[]{'All'};
         List<Schema.PickListEntry> picklistEntries=appointment__c.status__c.getDescribe().getPickListValues();
         for (integer i=0;i<picklistEntries.size();i++)
         {
@@ -18,9 +18,12 @@ global class DoctorAppointmentController {
     }
     @auraEnabled
     global static List<Appointment__c> getAppointmentsByStatus(String Filter)
-    {
-        return [SELECT start_time__c, end_time__c, description__c,status__c FROM Appointment__c WHERE status__c=:Filter];
-
-        //return [SELECT customer__r.Name, start_time__c, end_time__c, description__c, language_preference__c, residence__r.office_location__c, status__c, doctor_message__c FROM Appointment__c WHERE status__c=:Filter];
+    {	
+        if(Filter=='All')
+            return [SELECT customer__r.Name, start_time__c, end_time__c, description__c, language_preference__c, status__c, 
+                    customer__r.Phone, doctor_message__c, Residence__r.office_location__r.Name FROM Appointment__c];
+   		else
+        	return [SELECT customer__r.Name, start_time__c, end_time__c, description__c, language_preference__c, status__c, 
+                    customer__r.Phone, doctor_message__c, Residence__r.office_location__r.Name FROM Appointment__c WHERE status__c=:Filter];
     }
 }

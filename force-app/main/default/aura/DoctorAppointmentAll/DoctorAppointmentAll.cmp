@@ -1,7 +1,10 @@
 <aura:component controller="DoctorAppointmentController">
     <aura:attribute name="FilterOptions" type="String[]"/>
     <aura:attribute name="AppointmentsList" type="Object"/>
+    <aura:attribute name="AppointmentsRawList" type="Object"/>
     <aura:attribute name="AppointmentsColumns" type="List"/>
+    <aura:attribute name="SortCategory" type="String" default="Start_Time__c"/>
+    <aura:attribute name="SortDirection" type="String" default="desc"/>
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     <div class='slds-grid'>
         <div class='slds-col slds-size_1-of-4'>
@@ -11,9 +14,13 @@
                 </aura:iteration>
             </lightning:select>
         </div>
+        <lightning:buttonIcon class='slds-col slds-size_1-of-12 slds-align-bottom' iconName="utility:loop" onclick="{!c.refreshAppointments}" alternativeText="Refresh" value="Refresh"/>
     </div>
     <lightning:datatable data="{!v.AppointmentsList}"
                          columns="{!v.AppointmentsColumns}"
                          keyField="Id"
+                         onsort="{!c.updateSort}"
+                         sortedBy="{!v.SortCategory}"
+                         sortedDirection="{!v.SortDirection}"
                          hideCheckboxColumn="true"/>
 </aura:component>
