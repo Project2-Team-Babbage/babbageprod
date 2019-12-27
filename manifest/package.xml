@@ -23,7 +23,6 @@
         <members>EnableDoctorUser</members>
         <members>DoctorAppointment</members>
         <members>DoctorAppointmentCalander</members>
-        <members>DoctorAppointmentPending</members>
         <members>DoctorAppointmentAll</members>
         <name>AuraDefinitionBundle</name>
     </types>
