@@ -14,15 +14,23 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CustomerAppointmentPageController</apexClass>
+        <apexClass>CustomerSearchRequestPageController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CustomerSearchPageController</apexClass>
+        <apexClass>DataFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CustomerSearchRecordController</apexClass>
+        <apexClass>TestCustomerSearchRequestController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestUpdateCompletedAppointments</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UpdateCompletedAppointments</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -259,11 +267,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Search__c.Specialization__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Search__c.Timestamp__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
