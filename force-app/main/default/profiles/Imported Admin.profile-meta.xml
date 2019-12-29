@@ -6,14 +6,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>AppointmentRestService</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BabbageCommunityUser</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD
         <apexClass>CustomerSearchRequestPageController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -32,14 +29,17 @@
     <classAccesses>
         <apexClass>UpdateCompletedAppointments</apexClass>
         <apexClass>CustomerAppointmentPageController</apexClass>
+=======
+        <apexClass>CustomerAppointmentController</apexClass>
+>>>>>>> origin/master
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CustomerSearchPageController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CustomerSearchRecordController</apexClass>
+      <apexClass>DoctorAppointmentController</apexClass>
+      <enabled>false</enabled>
+  </classAccesses>
+  <classAccesses>
+        <apexClass>CustomerSearchRequestPageController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -47,19 +47,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DoctorAppointmentController</apexClass>
+        <apexClass>TestCustomerSearchRequestController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>RestCallout</apexClass>
+        <apexClass>TestUpdateCompletedAppointments</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>RestCalloutMock</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RestCalloutTest</apexClass>
+        <apexClass>UpdateCompletedAppointments</apexClass
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -149,6 +145,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Flagged__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Contact.HasOptedOutOfEmail</field>
         <readable>false</readable>
@@ -174,9 +175,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.Languages__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -256,6 +257,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Office_Location__c.Phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Office_Location__c.Zip_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
