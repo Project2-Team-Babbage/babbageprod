@@ -47,10 +47,6 @@ public class DataFactory{
         'BoringTown',
         'SampleWay'
     };
-    
-    static string[] ZipList=new List<String>{
-         '20170', '20171', '20172', '20173', '92370'   
-    };
 
     static string[] OfficeNameList=new List<String>{
         'Generic Plus',
@@ -128,7 +124,7 @@ public class DataFactory{
         ID accountID=[SELECT ID FROM Account WHERE Name='Doctor Account' LIMIT 1].ID;
         ID recordTypeID=[SELECT ID FROM RecordType WHERE Name='Doctor' and sObjectType='Contact' LIMIT 1].ID;
         for(integer i=0;i<n;i++)
-        {
+        {	
             Contact newCont=new Contact();
             newCont.RecordTypeID=recordTypeID;
             newCont.AccountID =accountID;
@@ -262,7 +258,7 @@ public class DataFactory{
             office.Name=OfficeNameList[Integer.valueof(Math.Random()*OfficeNameList.size())];
             office.city__c=CityList[Integer.valueof(Math.Random()*CityList.size())];
             office.State__c=StateList[Integer.valueof(Math.Random()*StateList.size())];
-            office.zip_code__c=ZipList[Integer.valueof(Math.Random()*5)]; //Just a small whoopsy daisy I fixed :-)
+            office.zip_code__c=Integer.valueof(Math.Random()*99999);
             office.phone__c=(Math.mod(Integer.valueof(Math.Random()*999),899)+100)+'-'+
                 (Math.mod(Integer.valueof(Math.Random()*999),899)+100)+'-'+
                 (Math.mod(Integer.valueof(Math.Random()*9999),8999)+1000);

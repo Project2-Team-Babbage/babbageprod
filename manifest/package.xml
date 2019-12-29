@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    
-
 
     <types>
-        <!--PLACE APEX CONTROLER CLASSES HERE-->
-        <members>CustomerSearchRecordController</members>
+        <members>CustomerSearchRequestPageController</members>
         <members>BabbageCommunityUser</members>
         <members>CustomerAppointmentController</members>
         <members>DoctorAppointmentController</members>
         <members>DataFactory</members>
+        <members>TestCustomerSearchRequestController</members>
+        <members>UpdateCompletedAppointments</members>
+        <members>TestUpdateCompletedAppointments</members>
         <members>CustomerSearchPageController</members>
         <members>CustomerAppointmentPageController</members>
+        <members>DoctorAppointmentController</members>
+        <members>AppointmentRestService</members>
+		<members>RestCallout</members>
+		<members>RestCalloutTest</members>
+		<members>RestCalloutMock</members>
         <name>ApexClass</name>
     </types>
 
@@ -29,6 +34,15 @@
         <members>RejectedAppointmentDisplay</members>
         <members>EnableCustomerUser</members>
         <members>EnableDoctorUser</members>
+        <members>CustomerSearchRequestPage</members>
+        <members>CustomerSearchPage</members>
+        <members>CustomerSearchResults</members>
+        <members>MatchingDoctors</members>
+        <members>DoctorSelected</members>
+        <members>CustomerRequestPage</members>
+        <members>DoctorAppointment</members>
+        <members>DoctorAppointmentCalander</members>
+        <members>DoctorAppointmentAll</members>
         <name>AuraDefinitionBundle</name>
     </types>
 
@@ -67,6 +81,13 @@
     <types>
         <members>Southern_Heart_UtilityBar</members>
         <name>FlexiPage</name>
+    </types>
+
+    <types>
+        <members>Survey_Subject_Flow</members>
+        <members>Send_Survey</members>
+        <members>Doctor_and_Office_Survey</members>
+        <name>Flow</name>
     </types>
 
     <types>

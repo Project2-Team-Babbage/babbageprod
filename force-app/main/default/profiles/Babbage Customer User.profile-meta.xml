@@ -11,10 +11,30 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CustomerAppointmentController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>DoctorAppointmentController</apexClass>
+      <enabled>false</enabled>
+</classAccesses>
+      <classAccesses>
+        <apexClass>CustomerSearchRequestPageController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DataFactory</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestCustomerSearchRequestController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestUpdateCompletedAppointments</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UpdateCompletedAppointments</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -101,6 +121,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Fax</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Flagged__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -237,11 +262,6 @@
         <editable>true</editable>
         <field>Search__c.Specialization__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Search__c.Timestamp__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
         <layout>Contact-Customer Layout</layout>
