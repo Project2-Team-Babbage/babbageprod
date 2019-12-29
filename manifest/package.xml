@@ -123,7 +123,7 @@
 
     <types>
         <!--Dashboard(s)-->
-        <members></members>
+        <members>Southern_Heart_Reports_Customer_Searches_and_Booking_Frequencies</members>
     </types>
 
     <version>47.0</version>
