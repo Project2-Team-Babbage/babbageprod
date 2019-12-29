@@ -1,8 +1,9 @@
-public class CustomerSearchRequestPageController{
+public without sharing class CustomerSearchRequestPageController {
     // function to return matching doctors based on soql query
     @AuraEnabled
     public static List<Residence__c> returnMatchingDoctors(string searchquery){
-        return Database.query(searchquery);  
+        List<Residence__c> matchingDoctors = Database.query(searchquery);  
+        return matchingDoctors;
     }
     
     // function to insert search record when user clicks 'Search' button on CustomerSearchPage
@@ -51,5 +52,15 @@ public class CustomerSearchRequestPageController{
     public static List<String> getDoctorLanguages(String doctorId){
         Contact doctor = [SELECT Id, Language__c FROM Contact WHERE Id=:doctorId LIMIT 1];
         return doctor.Language__c.split(';');
+    }
+    
+    // function to get id of contact associated with current community user to allow insertion of search
+    // and appointment records
+    @AuraEnabled
+    public static Id getContactId(){
+        id userId = UserInfo.getUserId();
+		User u = [select id, contactId from User where id = : userId];
+		id getContactId = u.contactId;
+		return getContactId;
     }
 }

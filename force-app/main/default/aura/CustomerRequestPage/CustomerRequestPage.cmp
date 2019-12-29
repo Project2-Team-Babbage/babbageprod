@@ -7,6 +7,7 @@
     <aura:attribute name="chosenDoctorResidence" type="String"/>
     <aura:attribute name="chosenId" type="String"/>
     <aura:attribute name="chosenDoctorId" type="String"/>
+    <aura:attribute name="currentContactId" type="String"/>
     
     <!-- change handler for chosenDoctorResidence to populate chosenDoctor and 
 	chosenResidence and change handler for chosenDoctorId to populate 
@@ -32,6 +33,7 @@
                                   type="datetime" 
                                   value="{!v.newAppointment.Start_Time__c}"/>
             
+            
             <!-- language (defaults to english) -->
             <lightning:select aura:id="languageField" label="Preferred Language:">
                 <aura:iteration items="{!v.languageOptions}" var="languageOption">
@@ -55,6 +57,7 @@
             <br/>
             <lightning:button label="Request Appointment" variant="brand" 
                               onclick="{!c.handleRequestAppointment}"/>
+            
         </div>
     </lightning:card>
     

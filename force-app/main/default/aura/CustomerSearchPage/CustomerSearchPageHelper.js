@@ -31,10 +31,19 @@
             }
         });
         
+        // get id of contact associated with current user
+        var contactId = component.get("c.getContactId");
+        contactId.setCallback(this, function(response){
+            if(response.getState() === "SUCCESS"){
+                component.set("v.currentContactId", response.getReturnValue());
+            }
+        })
+        
         // enqueue all the actions
         $A.enqueueAction(genderSelect);
         $A.enqueueAction(specializationSelect);
         $A.enqueueAction(languageDual);
+        $A.enqueueAction(contactId);
     },
     
     helperHandleSearch : function(component){
@@ -51,7 +60,7 @@
             component.set("v.search.Specialization__c", selectedSpecialization);
             
             // add specialization to soql query
-            soqlQuery = soqlQuery + " WHERE Specialization__c=" + selectedSpecialization;
+            soqlQuery = soqlQuery + " WHERE Doctor__r.Specialization__c=" + selectedSpecialization;
         }
         if(selectedGender != ""){
             component.set("v.search.Sex__c", selectedGender);
@@ -59,10 +68,10 @@
             // add where clause if not already in soql query, add gender to
             // soql query
             if(soqlQuery.indexOf("WHERE") != -1){
-                soqlQuery = soqlQuery + " AND Sex__c=" + selectedGender;
+                soqlQuery = soqlQuery + " AND Doctor__r.Sex__c=" + selectedGender;
             }
             else{
-                soqlQuery = soqlQuery + " WHERE Sex__c=" + selectedGender;
+                soqlQuery = soqlQuery + " WHERE Doctor__r.Sex__c=" + selectedGender;
                 
             }
         }
@@ -90,17 +99,16 @@
             // add where clause if not already in soql query, add language to
             // soql query
             if(soqlQuery.indexOf("WHERE") != -1){
-                soqlQuery = soqlQuery + " AND Language__c INCLUDES(" + 
-                    soqlLanguages + ")";
+                soqlQuery = soqlQuery + " AND Doctor__r.Language__c INCLUDES('" + 
+                    soqlLanguages + "')";
             }
             else{
-                soqlQuery = soqlQuery + " WHERE Language__c INCLUDES(" +
-                    soqlLanguages + ")";
+                soqlQuery = soqlQuery + " WHERE Doctor__r.Language__c INCLUDES('" +
+                    soqlLanguages + "')";
             }
         }
         
-        component.set("v.search.Contact__c", 
-                      $A.get("$SObjectType.CurrentUser.ContactId"));
+        component.set("v.search.Contact__c", component.get("v.currentContactId"));
         
         // insert it
         var insertSearch = component.get("c.insertSearchRecord");
@@ -118,6 +126,18 @@
             callbackEvent.setParams({"matchingDoctorResidences" : 
                                      response.getReturnValue()});
             callbackEvent.fire();
+            
+            // alert the user if no doctors match their search filters
+            if(response.getReturnValue().length == 0){
+                var resultsToast = $A.get("e.force:showToast");
+                if(resultsToast){
+                    resultsToast.setParams({
+                        "title": "Search Failure:",
+                        "message": "Sorry, no doctors in our network match your selected criteria."
+                    });
+                    resultsToast.fire();
+                }
+            }
         });
         
         // enqueue the actions

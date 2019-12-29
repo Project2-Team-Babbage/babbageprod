@@ -47,6 +47,15 @@
         component.set("v.newAppointment.Doctor__c", ids.substring(spaceIndex + 1));
         component.set("v.chosenDoctorId", ids.substring(spaceIndex + 1));
         component.set("v.newAppointment.Residence__c", ids.substring(0, spaceIndex));
+        
+        // get id of contact associated with current user
+        var contactId = component.get("c.getContactId");
+        contactId.setCallback(this, function(response){
+            if(response.getState() === "SUCCESS"){
+                component.set("v.currentContactId", response.getReturnValue());
+            }
+        });
+        $A.enqueueAction(contactId);
     },
     
     helperHandleRequestAppointment : function(component){
@@ -55,14 +64,14 @@
         component.set("v.newAppointment.Language_Preference__c", 
                       component.find("languageField").get("v.value"));
         component.set("v.newAppointment.Customer__c", 
-                      $A.get("$SObjectType.CurrentUser.ContactId"));
+                      component.get("v.currentContactId"));
         
         // Doctor__c and Residence__c are stored in the form Residence__c + ' ' +
         // Doctor__c in the chosenId attribute
         var ids = "" + component.get("v.chosenId");
         var spaceIndex = ids.indexOf(" ");
-        component.set("v.newAppointment.Doctor__c", ids.substring(spaceIndex + 1));
-        component.set("v.newAppointment.Residence__c", ids.substring(0, spaceIndex));
+        component.set("v.newAppointment.Doctor__c", ids.substring(spaceIndex + 1).trim());
+        component.set("v.newAppointment.Residence__c", ids.substring(0, spaceIndex).trim());
         
         component.find("appointmentRecordCreator").saveRecord(function(saveResult) {
             if (saveResult.state === "SUCCESS" || saveResult.state === "DRAFT") {
