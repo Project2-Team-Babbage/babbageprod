@@ -6,10 +6,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>AppointmentRestService</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BabbageCommunityUser</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -33,31 +29,11 @@
         <apexClass>UpdateCompletedAppointments</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>DataFactory</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DoctorAppointmentController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RestCallout</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RestCalloutMock</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RestCalloutTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Appointment__c.Description__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -140,6 +116,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Flagged__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Contact.HasOptedOutOfEmail</field>
         <readable>false</readable>
@@ -165,9 +146,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Contact.Languages__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
