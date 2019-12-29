@@ -10,6 +10,10 @@
         <members>CustomerSearchPageController</members>
         <members>CustomerAppointmentPageController</members>
         <members>DoctorAppointmentController</members>
+        <members>AppointmentRestService</members>
+		<members>RestCallout</members>
+		<members>RestCalloutTest</members>
+		<members>RestCalloutMock</members>
         <name>ApexClass</name>
     </types>
 

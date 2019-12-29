@@ -80,6 +80,7 @@
                 for(let i=0;i<responseData.length;i++){
                     responseData[i].Customer_Name=responseData[i].Customer__r.Name;
                     responseData[i].Customer_Phone=responseData[i].Customer__r.Phone;
+                    responseData[i].Customer_Email=responseData[i].Customer__r.Email;
                     responseData[i].Office_Name=responseData[i].Residence__r.Office_Location__r.Name;
                 }
                 component.set('v.AppointmentsList',responseData);

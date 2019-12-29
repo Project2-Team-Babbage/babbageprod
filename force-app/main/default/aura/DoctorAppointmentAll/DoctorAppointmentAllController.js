@@ -24,8 +24,11 @@
                            minute: "2-digit",
                            hour12: true
                        }, sortable:true,editable:true},
+                       {label: 'Phone Number', fieldName:'Customer_Phone', Type:'phone', 
+                        sortable:true,cellAttributes:{iconName:'utility:outbound_call',iconPosition:'left'}},
+                       {label: 'Email', fieldName:'Customer_Email', Type:'String', 
+                        sortable:true,cellAttributes:{iconName:'utility:email',iconPosition:'left'}},
                        {label: 'Status', fieldName: 'Status__c', Type:'String', sortable:true},
-                       {label: 'Phone Number', fieldName:'Customer_Phone', Type:'phone', sortable:true},
                        {type: 'action',typeAttributes:{rowActions :rowActions }}
                       ]);
         component.find('statusselect').set('v.value','All');

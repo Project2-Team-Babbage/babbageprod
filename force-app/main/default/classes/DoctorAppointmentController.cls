@@ -21,7 +21,7 @@ global class DoctorAppointmentController {
     {	
         System.debug(Status+TimeFrame+Period);
         string query='SELECT customer__r.Name, start_time__c, end_time__c, description__c, language_preference__c, status__c,'+ 
-            'customer__r.Phone, doctor_message__c, Residence__r.office_location__r.Name FROM Appointment__c';
+            'customer__r.Phone, customer__r.Email, doctor_message__c, Residence__r.office_location__r.Name FROM Appointment__c';
         if(TimeFrame=='Past') {
             if(Period!='All')
                 query=query+' WHERE end_time__c<TODAY AND start_time__c=LAST_N_DAYS:'+Period;
