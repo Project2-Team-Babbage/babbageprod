@@ -8,6 +8,13 @@
         <members>TestCustomerSearchRequestController</members>
         <members>UpdateCompletedAppointments</members>
         <members>TestUpdateCompletedAppointments</members>
+        <members>CustomerSearchPageController</members>
+        <members>CustomerAppointmentPageController</members>
+        <members>DoctorAppointmentController</members>
+        <members>AppointmentRestService</members>
+		<members>RestCallout</members>
+		<members>RestCalloutTest</members>
+		<members>RestCalloutMock</members>
         <name>ApexClass</name>
     </types>
 
@@ -25,6 +32,9 @@
         <members>MatchingDoctors</members>
         <members>DoctorSelected</members>
         <members>CustomerRequestPage</members>
+        <members>DoctorAppointment</members>
+        <members>DoctorAppointmentCalander</members>
+        <members>DoctorAppointmentAll</members>
         <name>AuraDefinitionBundle</name>
     </types>
 
