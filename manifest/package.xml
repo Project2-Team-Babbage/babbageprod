@@ -4,6 +4,8 @@
     <types>
         <members>CustomerSearchRequestPageController</members>
         <members>BabbageCommunityUser</members>
+        <members>CustomerAppointmentController</members>
+        <members>DoctorAppointmentController</members>
         <members>DataFactory</members>
         <members>TestCustomerSearchRequestController</members>
         <members>UpdateCompletedAppointments</members>
@@ -24,6 +26,12 @@
     </types>
 
     <types>
+        <!--PLACE AURA COMPONENT FILE NAMES HERE-->
+        <members>CustomerAppointmentPage</members>
+        <members>ConfirmedAppointmentDisplay</members>
+        <members>PendingAppointmentDisplay</members>
+        <members>RescheduledAppointmentDisplay</members>
+        <members>RejectedAppointmentDisplay</members>
         <members>EnableCustomerUser</members>
         <members>EnableDoctorUser</members>
         <members>CustomerSearchRequestPage</members>
@@ -118,6 +126,25 @@
         <members>Customer1</members>
         <members>Doctor1</members>
         <name>SiteDotCom</name>
+    </types>
+
+    <types>
+        <!--Report Types-->
+        <members>Customer_Search_Criteria_For_Doctors</members>
+        <members>Doctor_Booking_Frequency</members>
+        <members>Search_Metrics_For_Languages_and_Specialties</members>
+    </types>
+
+    <types>
+        <!--Reports Created-->
+        <members>Customer_Demand_for_Languages_Metrics_MrB</members>
+        <members>Doctor_Booking_Frequency_Report_2JM</members>
+        <members>Search_Trend_Frequencies_sh5</members>
+    </types>
+
+    <types>
+        <!--Dashboard(s)-->
+        <members>Southern_Heart_Reports_Customer_Searches_and_Booking_Frequencies</members>
     </types>
 
     <version>47.0</version>
