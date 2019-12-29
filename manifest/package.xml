@@ -129,22 +129,22 @@
     </types>
 
     <types>
-        <!--Report Types-->
         <members>Customer_Search_Criteria_For_Doctors</members>
         <members>Doctor_Booking_Frequency</members>
         <members>Search_Metrics_For_Languages_and_Specialties</members>
+        <name>ReportType</name>
     </types>
 
     <types>
-        <!--Reports Created-->
-        <members>Customer_Demand_for_Languages_Metrics_MrB</members>
-        <members>Doctor_Booking_Frequency_Report_2JM</members>
-        <members>Search_Trend_Frequencies_sh5</members>
+        <members>SouthernHeartReports/Customer_Demand_for_Languages_Metrics_MrB</members>
+        <members>SouthernHeartReports/Doctor_Booking_Frequency_Report_2JM</members>
+        <members>SouthernHeartReports/Search_Trend_Frequencies_sh5</members>
+        <name>Report</name>
     </types>
 
     <types>
-        <!--Dashboard(s)-->
-        <members>Southern_Heart_Reports_Customer_Searches_and_Booking_Frequencies</members>
+        <members>SouthernHeartReports/ILOrpuxBDoceNhKWBzhUJjTkxKhfRw</members>
+        <name>Dashboard</name>
     </types>
 
     <version>47.0</version>
