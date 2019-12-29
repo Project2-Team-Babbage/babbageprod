@@ -107,5 +107,24 @@
         <name>SiteDotCom</name>
     </types>
 
+    <types>
+        <!--Report Types-->
+        <members>Customer_Search_Criteria_For_Doctors</members>
+        <members>Doctor_Booking_Frequency</members>
+        <members>Search_Metrics_For_Languages_and_Specialties</members>
+    </types>
+
+    <types>
+        <!--Reports Created-->
+        <members>Customer_Demand_for_Languages_Metrics_MrB</members>
+        <members>Doctor_Booking_Frequency_Report_2JM</members>
+        <members>Search_Trend_Frequencies_sh5</members>
+    </types>
+
+    <types>
+        <!--Dashboard(s)-->
+        <members></members>
+    </types>
+
     <version>47.0</version>
 </Package>
