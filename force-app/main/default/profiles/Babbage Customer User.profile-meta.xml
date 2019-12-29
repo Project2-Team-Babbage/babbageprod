@@ -10,6 +10,26 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD
+        <apexClass>CustomerSearchRequestPageController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DataFactory</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestCustomerSearchRequestController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestUpdateCompletedAppointments</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UpdateCompletedAppointments</apexClass>
+        <enabled>false</enabled>
+=======
         <apexClass>CustomerAppointmentController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -20,6 +40,7 @@
       <classAccesses>
         <apexClass>CustomerSearchRequestPageController</apexClass>
         <enabled>true</enabled>
+>>>>>>> origin/master
     </classAccesses>
     <classAccesses>
         <apexClass>DataFactory</apexClass>
@@ -261,7 +282,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Search__c.Specialization__c</field>
+<<<<<<< HEAD
+        <readable>false</readable>
+=======
         <readable>true</readable>
+>>>>>>> origin/master
     </fieldPermissions>
     <layoutAssignments>
         <layout>Contact-Customer Layout</layout>
