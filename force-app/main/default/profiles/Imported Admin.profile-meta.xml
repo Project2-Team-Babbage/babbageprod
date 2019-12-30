@@ -10,7 +10,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
         <apexClass>CustomerSearchRequestPageController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -28,10 +27,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UpdateCompletedAppointments</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CustomerAppointmentPageController</apexClass>
-=======
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CustomerAppointmentController</apexClass>
->>>>>>> origin/master
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -55,7 +58,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>UpdateCompletedAppointments</apexClass
+        <apexClass>UpdateCompletedAppointments</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>

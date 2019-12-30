@@ -10,7 +10,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
         <apexClass>CustomerSearchRequestPageController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -28,7 +27,9 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UpdateCompletedAppointments</apexClass>
-=======
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CustomerAppointmentController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -38,7 +39,6 @@
 </classAccesses>
 <classAccesses>
         <apexClass>CustomerSearchRequestPageController</apexClass>
->>>>>>> origin/master
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -281,11 +281,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Search__c.Specialization__c</field>
-<<<<<<< HEAD
-        <readable>false</readable>
-=======
         <readable>true</readable>
->>>>>>> origin/master
     </fieldPermissions>
     <layoutAssignments>
         <layout>Contact-Customer Layout</layout>

@@ -17,6 +17,7 @@
 		<members>RestCallout</members>
 		<members>RestCalloutTest</members>
 		<members>RestCalloutMock</members>
+        <members>TestDataFactory</members>
         <name>ApexClass</name>
     </types>
 
@@ -85,8 +86,8 @@
 
     <types>
         <members>Survey_Subject_Flow</members>
-        <members>Send_Survey</members>
-        <members>Doctor_and_Office_Survey</members>
+        <!--<members>Send_Survey</members>-->
+        <members>doctor_and_office_survey</members>
         <name>Flow</name>
     </types>
 

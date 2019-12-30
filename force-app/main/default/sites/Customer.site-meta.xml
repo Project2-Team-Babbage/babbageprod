@@ -23,7 +23,7 @@
     <requireHttps>true</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
-    <siteAdmin>ben.learn@resourceful-wolf-9ofza7.com</siteAdmin>
+    <siteAdmin>ben.learn@resourceful-hawk-mss3sr.com</siteAdmin>
     <siteType>ChatterNetwork</siteType>
     <subdomain>babbageproject2-developer-edition</subdomain>
     <urlPathPrefix>Customer</urlPathPrefix>
