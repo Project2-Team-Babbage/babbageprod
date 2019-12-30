@@ -6,6 +6,7 @@
     <aura:attribute name="SortCategory" type="String" default="Start_Time__c"/>
     <aura:attribute name="SortDirection" type="String" default="desc"/>
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <lightning:card title="All Appointments" class="padded">
     <div class='slds-grid'>
         <div class='slds-col slds-size_1-of-8'>
             <lightning:select name="statusselect" onchange="{!c.updateAppointments}" label="Status" aura:id="statusselect">
@@ -43,4 +44,5 @@
                          onrowaction="{!c.handleRowActions}"
                          hideCheckboxColumn="true"
                          suppressBottomBar="true"/>
+        </lightning:card>
 </aura:component>

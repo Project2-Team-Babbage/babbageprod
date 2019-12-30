@@ -49,7 +49,10 @@
                 helper.denyAppointment(component,row);
                 break;
             case'update':
-                helper.updateAppointment(component,row);
+                helper.updateAppointment(component,row,true);
+                break;
+            case'reschedule':
+                helper.rescheduleAppointment(component,row);
                 break;
         }
     },

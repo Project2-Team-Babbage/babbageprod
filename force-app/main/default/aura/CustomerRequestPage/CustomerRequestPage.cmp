@@ -8,10 +8,11 @@
     <aura:attribute name="chosenId" type="String"/>
     <aura:attribute name="chosenDoctorId" type="String"/>
     <aura:attribute name="currentContactId" type="String"/>
+    <aura:attribute name="enteredDescription" type="String"/>
     
     <!-- change handler for chosenDoctorResidence to populate chosenDoctor and 
-	chosenResidence and change handler for chosenDoctorId to populate 
-	languageOptions-->
+ chosenResidence and change handler for chosenDoctorId to populate 
+ languageOptions-->
     <aura:handler name="change" value="{!v.chosenDoctorResidence}" 
                   action="{!c.doctorResidenceChange}"/>
     <aura:handler name="change" value="{!v.chosenId}" 
@@ -28,10 +29,10 @@
     <!-- Display the new appointment form -->
     <lightning:card title="Request Appointment">
         <div class="slds-p-horizontal--small">
-			<!-- start time -->
+            <!-- start time -->
             <lightning:input aura:id="startTimeField" label="Start Time"
-                                  type="datetime" 
-                                  value="{!v.newAppointment.Start_Time__c}"/>
+                             type="datetime" 
+                             value="{!v.newAppointment.Start_Time__c}"/>
             
             
             <!-- language (defaults to english) -->
@@ -43,7 +44,7 @@
             
             <!-- optional description -->
             <lightning:input aura:id="descriptionField" label="Description"
-                             value="{!v.newAppointment.Description__c}" 
+                             value="{!v.enteredDescription}" 
                              maxlength="255"
                              placeholder="Optionally enter your reason for requesting an appointment and any other relevant details."/>
             

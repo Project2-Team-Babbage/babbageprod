@@ -1,13 +1,21 @@
 ({
-    updateAppointment: function(component, row){
+    updateAppointment: function(component, row, keepChanges){
         let func=component.get('c.updateAppointment');
         let draftValues=component.find("appointmentTable").get("v.draftValues")
         let updateValues=row;
         for(let i=0;i<draftValues.length;i++)
             if(draftValues[i].Id==row.Id)
             {
+                console.log('found row'+draftValues[i].Start_Time__c+' '+updateValues.Start_Time__c);
                 draftValues[i].Status__c=updateValues.Status__c;
-                updateValues=draftValues.splice(i,1);
+                if(keepChanges==true){
+                    console.log('keeping changes');
+                    if(draftValues[i].Start_Time__c!=null){
+                        draftValues[i].Status__c='Rescheduled';
+                        console.log(draftValues[i].Status__c);
+                    }
+                    updateValues=draftValues.splice(i,1)[0];
+                }
                 component.find("appointmentTable").set("v.draftValues",draftValues);
                 break;
             }
@@ -21,11 +29,15 @@
     },
     approveAppointment: function(component,row){
         row.Status__c='Confirmed';
-        this.updateAppointment(component,row);
+        this.updateAppointment(component,row,false);
     },
     denyAppointment: function(component,row){
         row.Status__c='Rejected';
-        this.updateAppointment(component,row);
+        this.updateAppointment(component,row,false);
+    },
+    rescheduleAppointment: function(component,row){
+        row.Status__c='Rescheduled';
+        this.updateAppointment(component,row,true);
     },
     getStatusList : function(component, attribute) {
         let func= component.get('c.getAppointmentStatusValues');
@@ -40,17 +52,22 @@
     getRowActions: function(component,row,callback){
         let actions=[];
         let approve={
-            'label':'Approve and Update',
+            'label':'Approve',
             'iconName':'utility:check',
             'name':'approve'
         };
         let deny={
-            'label':'Deny and Update',
+            'label':'Deny',
             'iconName':'utility:close',
             'name':'deny'
         };
+        let reschedule={
+            'label':'Reschedule and Update',
+            'iconName':'utility:picklist_type',
+            'name':'reschedule'
+        };
         let update={
-            'label':'Update',
+            'label':'Update Messages/Reschedule',
             'iconName':'utility:picklist_type',
             'name':'update'
         };
@@ -61,6 +78,7 @@
         }
         actions.push(approve);
         actions.push(deny);
+        //actions.push(reschedule);
         actions.push(update);
         
         setTimeout($A.getCallback(function () {

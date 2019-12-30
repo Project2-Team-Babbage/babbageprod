@@ -1,9 +1,9 @@
 // utility class to create test data used by functions in TestUpdateCompletedAppointments and 
 // TestCustomerSearchRequestController apex classes
 @isTest
-public class TestDataFactory {
+public class UtilityTestClass {
     public static void testFactory(){
-        // insert a doctor to test their languages
+        // insert a doctor
         Account testAccount = new Account(Name='Test');
         insert testAccount;
         testAccount = [SELECT Id FROM Account WHERE Name='Test' LIMIT 1];
@@ -15,7 +15,7 @@ public class TestDataFactory {
                                          Email='test@gmail.com', Language__c='English;Spanish', RecordTypeId=recordTypeId);
         insert testDoctor;
         
-        // insert a residence to test the function that returns matching doctors
+        // insert a residence
         Office_Location__c testOffice = new Office_Location__c(Name='Test', Zip_Code__c=12345, State__c='PA',
                                                                City__c='Meadville', 
                                                                Street_Address__c='12345 Way');
@@ -26,7 +26,7 @@ public class TestDataFactory {
                                                       Office_Location__c=testOffice.Id);
         insert testResidence;
         
-        // insert a customer to test the function that inserts search records
+        // insert a customer
         recordTypeId=[SELECT ID FROM RecordType WHERE Name='Customer' and sObjectType='Contact' LIMIT 1].Id;
         Contact testCustomer = new Contact(AccountId=testAccount.Id, Email='test@gmail.com', 
                                            FirstName='Test', LastName='Customer', RecordTypeId=recordTypeId);

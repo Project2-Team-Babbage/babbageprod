@@ -2,7 +2,7 @@
 public class TestCustomerSearchRequestController {
     @isTest static void testReturnMatchingDoctors(){
         // test with no specifications, gender specified, language specified, specialization specified
-        TestDataFactory.testFactory();
+        UtilityTestClass.testFactory();
         String male = 'Male';
         String spanish = 'Spanish';
         String proctologist = 'Proctologist';
@@ -29,7 +29,7 @@ public class TestCustomerSearchRequestController {
     
     @isTest static void testInsertSearchRecord(){
         // test insertion of search record
-        TestDataFactory.testFactory();
+        UtilityTestClass.testFactory();
         Contact testCustomer = [SELECT Id FROM Contact WHERE Name='Test Customer' LIMIT 1];
         Search__c testSearch = new Search__c(Contact__c=testCustomer.Id);
         CustomerSearchRequestPageController.insertSearchRecord(testSearch);
@@ -74,7 +74,7 @@ public class TestCustomerSearchRequestController {
     
     @isTest static void testGetDoctorLanguages(){
         // returned languages should be English and Spanish
-        TestDataFactory.testFactory();
+        UtilityTestClass.testFactory();
         List<String> expectedLanguages = new List<String>();
         expectedLanguages.add('English');
         expectedLanguages.add('Spanish');

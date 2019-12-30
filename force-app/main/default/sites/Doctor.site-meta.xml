@@ -25,6 +25,6 @@
     <selfRegPage>CommunitiesSelfReg</selfRegPage>
     <siteAdmin>ben.learn@resourceful-hawk-mss3sr.com</siteAdmin>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>babbageproject2-developer-edition</subdomain>
+    <subdomain>babbage-project-pres-developer-edition</subdomain>
     <urlPathPrefix>Doctor</urlPathPrefix>
 </CustomSite>

@@ -10,14 +10,14 @@
         <members>TestCustomerSearchRequestController</members>
         <members>UpdateCompletedAppointments</members>
         <members>TestUpdateCompletedAppointments</members>
-        <members>CustomerSearchPageController</members>
-        <members>CustomerAppointmentPageController</members>
         <members>DoctorAppointmentController</members>
         <members>AppointmentRestService</members>
 		<members>RestCallout</members>
 		<members>RestCalloutTest</members>
 		<members>RestCalloutMock</members>
-        <members>TestDataFactory</members>
+        <members>UtilityTestClass</members>
+        <members>FlagDoctors</members>
+        <members>TestFlagDoctors</members>
         <name>ApexClass</name>
     </types>
 
@@ -27,7 +27,6 @@
     </types>
 
     <types>
-        <!--PLACE AURA COMPONENT FILE NAMES HERE-->
         <members>CustomerAppointmentPage</members>
         <members>ConfirmedAppointmentDisplay</members>
         <members>PendingAppointmentDisplay</members>
@@ -130,9 +129,15 @@
     </types>
 
     <types>
+        <members>Moher</members>
+        <name>StaticResource</name>
+    </types>
+    
+    <types>
         <members>Customer_Search_Criteria_For_Doctors</members>
         <members>Doctor_Booking_Frequency</members>
         <members>Search_Metrics_For_Languages_and_Specialties</members>
+        <members>Contacts</members>
         <name>ReportType</name>
     </types>
 
@@ -140,6 +145,7 @@
         <members>SouthernHeartReports/Customer_Demand_for_Languages_Metrics_MrB</members>
         <members>SouthernHeartReports/Doctor_Booking_Frequency_Report_2JM</members>
         <members>SouthernHeartReports/Search_Trend_Frequencies_sh5</members>
+        <members>SouthernHeartReports/Flagged_Doctors_0p3</members>
         <name>Report</name>
     </types>
 

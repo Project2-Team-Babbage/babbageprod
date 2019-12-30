@@ -15,6 +15,7 @@
     <!-- attribute to hold id of contact associated with current user -->
     <aura:attribute name="currentContactId" type="String"/>
     
+    <lightning:card title="Find a Doctor Who's Right for You" class="padded">
     <lightning:select aura:id="genders" name="genders" label="Preferred Doctor Gender:">
         <option value="" text=""/>
         <aura:iteration items="{!v.genderOptions}" var="genderOption">
@@ -36,4 +37,5 @@
                            value="{!v.selectedLanguages}"/>
     
     <lightning:button label="Search" onclick="{!c.handleSearch}"/>
+        </lightning:card>
 </aura:component>

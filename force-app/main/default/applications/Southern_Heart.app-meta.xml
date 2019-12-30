@@ -14,9 +14,10 @@
     <tabs>Appointment__c</tabs>
     <tabs>Residence__c</tabs>
     <tabs>Office_Location__c</tabs>
-    <tabs>Office_Survey__c</tabs>
-    <tabs>Doctor_Survey__c</tabs>
     <tabs>Search__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>standard-Survey</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Southern_Heart_UtilityBar</utilityBar>
 </CustomApplication>

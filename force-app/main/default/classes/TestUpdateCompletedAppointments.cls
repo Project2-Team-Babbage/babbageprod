@@ -14,9 +14,9 @@ public class TestUpdateCompletedAppointments {
     // Because this is a test, job executes
     // immediately after Test.stopTest().
     public static String CRON_EXP = '0 0 0 15 3 ? 2022';
-    
-    /*@isTest static void testScheduledJob(){
-        TestDataFactory.testFactory();
+    /*
+    @isTest static void testScheduledJob(){
+        UtilityTestClass.testFactory();
         
         // grab test customer, doctor, and residence
         Contact testDoctor = [SELECT Id FROM Contact WHERE Name='Test Doctor' LIMIT 1];

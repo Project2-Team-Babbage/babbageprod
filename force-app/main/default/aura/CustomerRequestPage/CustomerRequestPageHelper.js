@@ -60,11 +60,14 @@
     
     helperHandleRequestAppointment : function(component){
         // the customer has set Start_Time__c, we have to set the 
-        // Language_Preference__c, Customer__c, Doctor__c, and Residence__c 
+        // Language_Preference__c, Customer__c, Doctor__c, and Residence__c, and 
+        // Description__c 
         component.set("v.newAppointment.Language_Preference__c", 
                       component.find("languageField").get("v.value"));
         component.set("v.newAppointment.Customer__c", 
                       component.get("v.currentContactId"));
+        component.set("v.newAppointment.Description__c", 
+                      component.get("v.enteredDescription"));
         
         // Doctor__c and Residence__c are stored in the form Residence__c + ' ' +
         // Doctor__c in the chosenId attribute

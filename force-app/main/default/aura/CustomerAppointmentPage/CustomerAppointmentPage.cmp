@@ -1,4 +1,4 @@
-<aura:component controller="CustomerAppointmentController">
+<aura:component controller="CustomerAppointmentController" implements="forceCommunity:availableForAllPageTypes">
     <aura:attribute name="appointments" type="Appointment__c[]" />
     <aura:handler name="init" value="{!this}" action="{!c.mainInit}" />
     <!--Now, you need to get all the information about the Appointments 
