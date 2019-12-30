@@ -85,7 +85,7 @@
 
     <types>
         <members>Survey_Subject_Flow</members>
-        <!--<members>Send_Survey</members>-->
+        <members>Send_Survey</members>
         <members>doctor_and_office_survey</members>
         <name>Flow</name>
     </types>
@@ -130,6 +130,7 @@
 
     <types>
         <members>Moher</members>
+        <members>Moher_Customer</members>
         <name>StaticResource</name>
     </types>
     
