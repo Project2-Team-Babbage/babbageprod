@@ -112,18 +112,21 @@
         <members>Customer_Search_Criteria_For_Doctors</members>
         <members>Doctor_Booking_Frequency</members>
         <members>Search_Metrics_For_Languages_and_Specialties</members>
+        <name>REPORTTYPE</name>
     </types>
 
     <types>
         <!--Reports Created-->
-        <members>Customer_Demand_for_Languages_Metrics_MrB</members>
+        <members>Southern_Heart_Reports/Customer_Demand_for_Languages_Metrics_MrB</members>
         <members>Doctor_Booking_Frequency_Report_2JM</members>
         <members>Search_Trend_Frequencies_sh5</members>
+        <name>REPORT</name>
     </types>
 
     <types>
         <!--Dashboard(s)-->
-        <members>Southern_Heart_Reports_Customer_Searches_and_Booking_Frequencies</members>
+        <members>Southern Heart Reports Customer Searches and Booking Frequencies</members>
+        <name>DASHBOARD</name>
     </types>
 
     <version>47.0</version>
